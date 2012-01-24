@@ -1,4 +1,4 @@
-<%= form_for(@post, html: {class: "new_blog_post", id: "new_blog_post"}) do |f| %>
+<%= form_for(@post, :html => {:class => "new_blog_post", :id => "new_blog_post"}) do |f| %>
 
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -14,19 +14,19 @@
 
   <fieldset>
     <%= field do %>
-      <%= f.text_field :title, placeholder: "Give your post a title" %>
+      <%= f.text_field :title, :placeholder => "Give your post a title" %>
     <% end %>
 
     <%= field do %>
-      <%= f.text_area :body, placeholder: "Write something here..." %>
+      <%= f.text_area :body, :placeholder => "Write something here..." %>
     <% end %>
   </fieldset>
 
   <fieldset>
 
-    <%= field id: "new_blog_post_tag_field" do %>
+    <%= field :id => "new_blog_post_tag_field" do %>
       <%= f.label :tag_list, "Tags" %>
-      <%= f.text_field :tag_list, placeholder: "tag one, tag two, etc..." %>
+      <%= f.text_field :tag_list, :placeholder => "tag one, tag two, etc..." %>
     <% end %>
     
     <p class="blog_post_tip">

@@ -1,7 +1,7 @@
 module Blogit
   class CommentsController < ApplicationController
 
-    blogit_authenticate except: [:create]
+    blogit_authenticate :except => [:create]
     
     blogit_sweeper(:create, :update, :destroy)
 
@@ -16,7 +16,7 @@ module Blogit
 
         format.html { 
           if @comment.save 
-            redirect_to(post, notice: "Successfully added comment!")
+            redirect_to(post, :notice => "Successfully added comment!")
           else
             render "blogit/posts/show"
           end
@@ -30,7 +30,7 @@ module Blogit
       @comment = post.comments.find(params[:id])
       @comment.destroy
       respond_to do |format|
-        format.html { redirect_to(post, notice: "Successfully removed comment.") }        
+        format.html { redirect_to(post, :notice => "Successfully removed comment.") }        
         format.js
       end
     end

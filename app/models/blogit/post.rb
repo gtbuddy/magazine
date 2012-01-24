@@ -14,9 +14,9 @@ module Blogit
     # = Validations =
     # ===============
 
-    validates :title, presence: true, length: { minimum: 10, maximum: 66 }
-    validates :body,  presence: true, length: { minimum: 10 }
-    validates :blogger_id, presence: true
+    validates :title, :presence => true, :length => { :minimum => 10, :maximum => 66 }
+    validates :body,  :presence => true, :length => { :minimum => 10 }
+    validates :blogger_id, :presence => true
 
     # =================
     # = Assosciations =

@@ -3,10 +3,10 @@ module Blogit
   class PostsController < ApplicationController
 
     unless blogit_conf.include_admin_actions
-      before_filter :raise_404, except: [:index, :show, :tagged]
+      before_filter :raise_404, :except => [:index, :show, :tagged]
     end
 
-    blogit_authenticate(except: [:index, :show, :tagged])
+    blogit_authenticate(:except => [:index, :show, :tagged])
     
     blogit_cacher(:index, :show, :tagged)
     blogit_sweeper(:create, :update, :destroy)
@@ -46,32 +46,32 @@ module Blogit
     def create
       @post = current_blogger.blog_posts.new(params[:post])
       if @post.save
-        redirect_to @post, notice: 'Blog post was successfully created.'
+        redirect_to @post, :notice => 'Blog post was successfully created.'
       else
-        render action: "new"
+        render :action => "new"
       end
     end
 
     def update
       @post = current_blogger.blog_posts.find(params[:id])
       if @post.update_attributes(params[:post])
-        redirect_to @post, notice: 'Blog post was successfully updated.'
+        redirect_to @post, :notice => 'Blog post was successfully updated.'
       else
-        render action: "edit"
+        render :action => "edit"
       end
     end
 
     def destroy
       @post = current_blogger.blog_posts.find(params[:id])
       @post.destroy
-      redirect_to posts_url, notice: "Blog post was successfully destroyed."
+      redirect_to posts_url, :notice => "Blog post was successfully destroyed."
     end
 
     private
 
     def raise_404
       # Don't include admin actions if include_admin_actions is false
-      render file: "#{Rails.root}/public/404.html", status: :not_found, layout: false
+      render :file => "#{Rails.root}/public/404.html", :status => :not_found, :layout => false
     end
 
   end

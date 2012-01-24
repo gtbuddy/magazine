@@ -1,11 +1,11 @@
 
-<%= form_for [@post, @comment], remote: true, 
-  html: {
-    class: "new_blog_comment", id: "new_blog_comment" } do |f| -%>
+<%= form_for [@post, @comment], :remote => true, 
+  :html => {
+    :class => "new_blog_comment", :id => "new_blog_comment" } do |f| -%>
   
   <p>Leave a comment</p>
   
-  <%= field class: "hidden" do %>
+  <%= field :class => "hidden" do %>
     <%= f.label :nickname %>
     <%= f.text_field :nickname %>
     Hide me using CSS
