@@ -1,6 +1,6 @@
 module Blogit
   class Engine < Rails::Engine
-    isolate_namespace Blogit
+    #isolate_namespace Blogit
     
     initializer "blogit.extend_active_record" do
 
