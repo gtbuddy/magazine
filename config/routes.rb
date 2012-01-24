@@ -1,4 +1,4 @@
-Blogit::Engine.routes.draw do
+Rails.application.routes.draw do
   
   # Keep these above the posts resources block
   match "posts/page/:page" => "posts#index"
