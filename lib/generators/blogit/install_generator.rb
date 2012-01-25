@@ -14,7 +14,11 @@ module Blogit
 
 		  def self.next_migration_number(dirname)
 		    if ActiveRecord::Base.timestamped_migrations
-		      Time.new.utc.strftime("%Y%m%d%H%M%S%6N")
+					milliseconds = Time.now
+					"%10.6f" % milliseconds.to_f
+					milliseconds = milliseconds.usec
+		      t = Time.new.utc.strftime("%Y%m%d%H%M%S%6N")
+					t = t.to_s + milliseconds.to_s
 		    else
 		      "%.3d" % (current_migration_number(dirname) + 1)
 		    end
