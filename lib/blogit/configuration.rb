@@ -98,8 +98,8 @@ module Blogit
       @cache_pages                 = false
       @default_parser              = :markdown
       @highlight_code_syntax       = true
-      @rss_feed_title              = "#{Rails.application.titleize} Blog Posts"
-      @rss_feed_description        = "#{Rails.application.titleize} Blog Posts"
+      @rss_feed_title              = "#{Rails.application.class.parent_name.titleize} Blog Posts"
+      @rss_feed_description        = "#{Rails.application.class.parent_name.titleize} Blog Posts"
       @rss_feed_language           = "en"
       @redcarpet_options           = REDCARPET_OPTIONS
     end
