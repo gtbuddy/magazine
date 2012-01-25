@@ -1,5 +1,5 @@
 class CreateBlogComments < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :blog_comments do |t|
       t.string :name, :null => false
       t.string :email, :null => false

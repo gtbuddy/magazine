@@ -1,5 +1,5 @@
 class CreateBlogPosts < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :blog_posts do |t|
       t.string :title, :null => false
       t.text :body, :null => false
