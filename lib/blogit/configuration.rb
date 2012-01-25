@@ -1,7 +1,7 @@
 module Blogit
   class Configuration
     
-    # Should we include comments for blog posts?
+    # Should we include comments for blog articles?
     attr_accessor :include_comments
 
     # The name of the controller method we'll call to return the current blogger.
@@ -16,10 +16,10 @@ module Blogit
     # Defaults to :short
     attr_accessor :datetime_format
     
-    # Number of posts to show per page
+    # Number of articles to show per page
     # @see https://github.com/amatsuda/kaminari
-    # @see Blogit::Post
-    attr_accessor :posts_per_page
+    # @see Blogit::Article
+    attr_accessor :articles_per_page
     
     # Should text within "```" or "`" be highlighted as code?
     # Defaults to true
@@ -31,7 +31,7 @@ module Blogit
     # Defaults to :login_required
     attr_accessor :authentication_method
     
-    # If set to true, only the user who authored the post may, edit or destroy.
+    # If set to true, only the user who authored the article may, edit or destroy.
     # Defaults to false
     attr_accessor :author_edits_only
     
@@ -45,7 +45,7 @@ module Blogit
     # yourself elsewhere in the app
     attr_accessor :include_admin_actions
     
-    # If set to true, links for new posts, editing posts and deleting comments
+    # If set to true, links for new articles, editing articles and deleting comments
     # will be available. If set to false, you'll have to set these 
     # yourself in the templates.
     attr_accessor :include_admin_links
@@ -62,12 +62,12 @@ module Blogit
     # Defaults to false
     attr_accessor :cache_pages
     
-    # The title of the RSS feed for the blog posts
-    # Defaults to "[Application Name] Blog Posts"    
+    # The title of the RSS feed for the blog articles
+    # Defaults to "[Application Name] Blog Articles"    
     attr_accessor :rss_feed_title
     
-    # The description of the RSS feed for the blog posts
-    # Defaults to "[Application Name] Blog Posts"
+    # The description of the RSS feed for the blog articles
+    # Defaults to "[Application Name] Blog Articles"
     attr_accessor :rss_feed_description
 
     # The default language of the RSS feed
@@ -89,7 +89,7 @@ module Blogit
       @current_blogger_method      = :current_user
       @blogger_display_name_method = :username
       @datetime_format             = :short
-      @posts_per_page              = 5
+      @articles_per_page              = 5
       @authentication_method       = :login_required
       @author_edits_only           = false
       @ajax_comments               = true
@@ -98,8 +98,8 @@ module Blogit
       @cache_pages                 = false
       @default_parser              = :markdown
       @highlight_code_syntax       = true
-      @rss_feed_title              = "#{Rails.application.class.parent_name.titleize} Blog Posts"
-      @rss_feed_description        = "#{Rails.application.class.parent_name.titleize} Blog Posts"
+      @rss_feed_title              = "#{Rails.application.class.parent_name.titleize} Blog Articles"
+      @rss_feed_description        = "#{Rails.application.class.parent_name.titleize} Blog Articles"
       @rss_feed_language           = "en"
       @redcarpet_options           = REDCARPET_OPTIONS
     end

@@ -1,21 +1,21 @@
 module Blogit
-  class Post < ActiveRecord::Base
+  class Article < ActiveRecord::Base
 
     require "acts-as-taggable-on"
     require "kaminari"
     
     acts_as_taggable    
 
-    self.table_name = "blog_posts"
+    self.table_name = "articles"
 
-    self.paginates_per Blogit.configuration.posts_per_page
+    self.paginates_per Blogit.configuration.articles_per_page
 
     # ===============
     # = Validations =
     # ===============
 
-    validates :title, :presence => true, :length => { :minimum => 10, :maximum => 66 }
-    validates :body,  :presence => true, :length => { :minimum => 10 }
+    validates :title, :presence => true, :length => { :minimum => 5, :maximum => 66 }
+    validates :body,  :presence => true, :length => { :minimum => 5 }
     validates :blogger_id, :presence => true
 
     # =================
@@ -32,10 +32,10 @@ module Blogit
     # = Scopes =
     # ==========
 
-    # Returns the blog posts paginated for the index page
+    # Returns the blog articles paginated for the index page
     # @scope class
 		
-    scope :for_index, lambda { |page_no| order("created_at DESC").page(page_no||1) }
+    scope :for_index, lambda { |page_no| order("created_at DESC").page(page_no) }
 
     # ====================
     # = Instance Methods =

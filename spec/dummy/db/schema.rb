@@ -13,20 +13,20 @@
 
 ActiveRecord::Schema.define(:version => 20111118222922) do
 
-  create_table "blog_comments", :force => true do |t|
+  create_table "article_comments", :force => true do |t|
     t.string   "name",       :null => false
     t.string   "email",      :null => false
     t.string   "website"
     t.text     "body",       :null => false
-    t.integer  "post_id",    :null => false
+    t.integer  "article_id",    :null => false
     t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "blog_comments", ["post_id"], :name => "index_blog_comments_on_post_id"
+  add_index "article_comments", ["article_id"], :name => "index_article_comments_on_article_id"
 
-  create_table "blog_posts", :force => true do |t|
+  create_table "articles", :force => true do |t|
     t.string   "title",                         :null => false
     t.text     "body",                          :null => false
     t.integer  "blogger_id"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20111118222922) do
     t.datetime "updated_at"
   end
 
-  add_index "blog_posts", ["blogger_type", "blogger_id"], :name => "index_blog_posts_on_blogger_type_and_blogger_id"
+  add_index "articles", ["blogger_type", "blogger_id"], :name => "index_articles_on_blogger_type_and_blogger_id"
 
   create_table "people", :force => true do |t|
     t.string   "name"

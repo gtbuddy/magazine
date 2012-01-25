@@ -13,8 +13,8 @@ describe Blogit::Blogs do
     
     
     it "should build a hm assosciation on the model it's called in" do
-      lambda { User.new.blog_posts }.should_not raise_exception(NoMethodError)
-      User.new.blog_posts.should be_an(Array)
+      lambda { User.new.articles }.should_not raise_exception(NoMethodError)
+      User.new.articles.should be_an(Array)
     end
         
   end

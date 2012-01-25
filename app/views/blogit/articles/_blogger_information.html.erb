@@ -1,0 +1,4 @@
+<%= article_tag :footer do %>
+    Written by <%= article.blogger_display_name %> on 
+    <%= time_tag(article.created_at, blogit_conf.datetime_format) %>
+<% end %>

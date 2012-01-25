@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
-  Class: Blogit::PostsController
+  Class: Blogit::ArticlesController
   
     &mdash; Documentation by YARD 0.7.3
   
@@ -36,7 +36,7 @@
     <a href="../_index.html">Index (P)</a> &raquo; 
     <span class='title'><span class='object_link'><a href="../Blogit.html" title="Blogit (module)">Blogit</a></span></span>
      &raquo; 
-    <span class="title">PostsController</span>
+    <span class="title">ArticlesController</span>
   
   
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
@@ -56,7 +56,7 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><h1>Class: Blogit::PostsController
+    <div id="content"><h1>Class: Blogit::ArticlesController
   
   
   
@@ -75,7 +75,7 @@
           
             <li class="next"><span class='object_link'><a href="ApplicationController.html" title="Blogit::ApplicationController (class)">ApplicationController</a></span></li>
           
-            <li class="next">Blogit::PostsController</li>
+            <li class="next">Blogit::ArticlesController</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -91,7 +91,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">app/controllers/blogit/posts_controller.rb</dd>
+    <dd class="r2 last">app/controllers/blogit/articles_controller.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -329,12 +329,12 @@
 50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/posts_controller.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/blogit/articles_controller.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id create'>create</span>
-  <span class='ivar'>@post</span> <span class='op'>=</span> <span class='id current_blogger'>current_blogger</span><span class='period'>.</span><span class='id blog_posts'>blog_posts</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:post</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='ivar'>@post</span><span class='period'>.</span><span class='id save'>save</span>
-    <span class='id redirect_to'>redirect_to</span> <span class='ivar'>@post</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Blog post was successfully created.</span><span class='tstring_end'>'</span></span>
+  <span class='ivar'>@article</span> <span class='op'>=</span> <span class='id current_blogger'>current_blogger</span><span class='period'>.</span><span class='id articles'>articles</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:article</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@article</span><span class='period'>.</span><span class='id save'>save</span>
+    <span class='id redirect_to'>redirect_to</span> <span class='ivar'>@article</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Article was successfully created.</span><span class='tstring_end'>'</span></span>
   <span class='kw'>else</span>
     <span class='id render'>render</span> <span class='label'>action:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>new</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
@@ -364,12 +364,12 @@
 65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/posts_controller.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/blogit/articles_controller.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id destroy'>destroy</span>
-  <span class='ivar'>@post</span> <span class='op'>=</span> <span class='id current_blogger'>current_blogger</span><span class='period'>.</span><span class='id blog_posts'>blog_posts</span><span class='period'>.</span><span class='id find'>find</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='ivar'>@post</span><span class='period'>.</span><span class='id destroy'>destroy</span>
-  <span class='id redirect_to'>redirect_to</span> <span class='id posts_url'>posts_url</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Blog post was successfully destroyed.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@article</span> <span class='op'>=</span> <span class='id current_blogger'>current_blogger</span><span class='period'>.</span><span class='id articles'>articles</span><span class='period'>.</span><span class='id find'>find</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='ivar'>@article</span><span class='period'>.</span><span class='id destroy'>destroy</span>
+  <span class='id redirect_to'>redirect_to</span> <span class='id articles_url'>articles_url</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Article was successfully destroyed.</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -394,10 +394,10 @@
 41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/posts_controller.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/blogit/articles_controller.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id edit'>edit</span>
-  <span class='ivar'>@post</span> <span class='op'>=</span> <span class='id current_blogger'>current_blogger</span><span class='period'>.</span><span class='id blog_posts'>blog_posts</span><span class='period'>.</span><span class='id find'>find</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='ivar'>@article</span> <span class='op'>=</span> <span class='id current_blogger'>current_blogger</span><span class='period'>.</span><span class='id articles'>articles</span><span class='period'>.</span><span class='id find'>find</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -429,15 +429,15 @@
 23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/posts_controller.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/blogit/articles_controller.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id index'>index</span>
   <span class='id respond_to'>respond_to</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id format'>format</span><span class='op'>|</span>
     <span class='id format'>format</span><span class='period'>.</span><span class='id xml'>xml</span> <span class='lbrace'>{</span>
-      <span class='ivar'>@posts</span> <span class='op'>=</span> <span class='const'>Post</span><span class='period'>.</span><span class='id order'>order</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>created_at DESC</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+      <span class='ivar'>@articles</span> <span class='op'>=</span> <span class='const'>Article</span><span class='period'>.</span><span class='id order'>order</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>created_at DESC</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
     <span class='rbrace'>}</span>
     <span class='id format'>format</span><span class='period'>.</span><span class='id html'>html</span> <span class='lbrace'>{</span>
-      <span class='ivar'>@posts</span> <span class='op'>=</span> <span class='const'>Post</span><span class='period'>.</span><span class='id for_index'>for_index</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+      <span class='ivar'>@articles</span> <span class='op'>=</span> <span class='const'>Article</span><span class='period'>.</span><span class='id for_index'>for_index</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='rbrace'>}</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -464,10 +464,10 @@
 37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/posts_controller.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/blogit/articles_controller.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id new'>new</span>
-  <span class='ivar'>@post</span> <span class='op'>=</span> <span class='id current_blogger'>current_blogger</span><span class='period'>.</span><span class='id blog_posts'>blog_posts</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:post</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='ivar'>@article</span> <span class='op'>=</span> <span class='id current_blogger'>current_blogger</span><span class='period'>.</span><span class='id articles'>articles</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:article</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -493,11 +493,11 @@
 28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/posts_controller.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/blogit/articles_controller.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id show'>show</span>
-  <span class='ivar'>@post</span>    <span class='op'>=</span> <span class='const'>Post</span><span class='period'>.</span><span class='id find'>find</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='ivar'>@comment</span> <span class='op'>=</span> <span class='ivar'>@post</span><span class='period'>.</span><span class='id comments'>comments</span><span class='period'>.</span><span class='id new'>new</span>
+  <span class='ivar'>@article</span>    <span class='op'>=</span> <span class='const'>Article</span><span class='period'>.</span><span class='id find'>find</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='ivar'>@comment</span> <span class='op'>=</span> <span class='ivar'>@article</span><span class='period'>.</span><span class='id comments'>comments</span><span class='period'>.</span><span class='id new'>new</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -523,10 +523,10 @@
 33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/posts_controller.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/blogit/articles_controller.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id tagged'>tagged</span>
-  <span class='ivar'>@posts</span> <span class='op'>=</span> <span class='const'>Post</span><span class='period'>.</span><span class='id for_index'>for_index</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id tagged_with'>tagged_with</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:tag</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='ivar'>@articles</span> <span class='op'>=</span> <span class='const'>Article</span><span class='period'>.</span><span class='id for_index'>for_index</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id tagged_with'>tagged_with</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:tag</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id render'>render</span> <span class='symbol'>:index</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -557,12 +557,12 @@
 59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/posts_controller.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/blogit/articles_controller.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id update'>update</span>
-  <span class='ivar'>@post</span> <span class='op'>=</span> <span class='id current_blogger'>current_blogger</span><span class='period'>.</span><span class='id blog_posts'>blog_posts</span><span class='period'>.</span><span class='id find'>find</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='ivar'>@post</span><span class='period'>.</span><span class='id update_attributes'>update_attributes</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:post</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id redirect_to'>redirect_to</span> <span class='ivar'>@post</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Blog post was successfully updated.</span><span class='tstring_end'>'</span></span>
+  <span class='ivar'>@article</span> <span class='op'>=</span> <span class='id current_blogger'>current_blogger</span><span class='period'>.</span><span class='id articles'>articles</span><span class='period'>.</span><span class='id find'>find</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@article</span><span class='period'>.</span><span class='id update_attributes'>update_attributes</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:article</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='id redirect_to'>redirect_to</span> <span class='ivar'>@article</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Article was successfully updated.</span><span class='tstring_end'>'</span></span>
   <span class='kw'>else</span>
     <span class='id render'>render</span> <span class='label'>action:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>edit</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>

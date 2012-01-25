@@ -1,27 +1,27 @@
 require "spec_helper"
 
-describe Blogit::Post do
+describe Blogit::Article do
   
   context "should not be valid" do
     
     context "if blogger" do
       
       it "is nil" do
-        @blog_post = Blogit::Post.new
-        @blog_post.should_not be_valid
-        @blog_post.should have(1).error_on(:blogger_id)
+        @article = Blogit::Article.new
+        @article.should_not be_valid
+        @article.should have(1).error_on(:blogger_id)
       end
       
     end
     
     context "if title" do
       before do
-        @blog_post = Blogit::Post.new
+        @article = Blogit::Article.new
       end
 
       after do
-        @blog_post.should_not be_valid
-        @blog_post.errors[:title].should_not be_blank
+        @article.should_not be_valid
+        @article.errors[:title].should_not be_blank
       end
 
       it "is blank" do
@@ -29,23 +29,23 @@ describe Blogit::Post do
       end
 
       it "is less than 10 characters" do
-        @blog_post.title = "a" * 9
+        @article.title = "a" * 9
       end
 
       it "is longer than 66 characters" do
-        @blog_post.title = "a" * 67
+        @article.title = "a" * 67
       end
             
     end
     
     context "if body" do
       before do
-        @blog_post = Blogit::Post.new
+        @article = Blogit::Article.new
       end
 
       after do
-        @blog_post.should_not be_valid
-        @blog_post.errors[:body].should_not be_blank
+        @article.should_not be_valid
+        @article.errors[:body].should_not be_blank
       end
       
       it "is blank" do
@@ -53,7 +53,7 @@ describe Blogit::Post do
       end
       
       it "is shorter than 10 characters" do
-        @blog_post.body = "a" * 9
+        @article.body = "a" * 9
       end
       
     end
@@ -67,8 +67,8 @@ describe Blogit::Post do
         config.include_comments = true
       end
       User.blogs
-      @blog_post = Blogit::Post.new
-      lambda { @blog_post.comments }.should_not raise_exception(NoMethodError)
+      @article = Blogit::Article.new
+      lambda { @article.comments }.should_not raise_exception(NoMethodError)
     end
     
   end
@@ -82,22 +82,22 @@ describe Blogit::Post do
     let(:user) { User.create! username: "Jeronimo", password: "password" }
     
     it "should return the display name of the blogger if set" do
-      @post = user.blog_posts.build
-      @post.blogger_display_name.should == "Jeronimo"
+      @article = user.articles.build
+      @article.blogger_display_name.should == "Jeronimo"
       Blogit.configuration.blogger_display_name_method = :password
-      @post.blogger_display_name.should == "password"
+      @article.blogger_display_name.should == "password"
     end
     
     it "should return an empty string if blogger doesn't exist" do
       Blogit.configuration.blogger_display_name_method = :username
-      @post = Blogit::Post.new
-      @post.blogger_display_name.should == ""
+      @article = Blogit::Article.new
+      @article.blogger_display_name.should == ""
     end
 
     it "should raise an exception if blogger display_name method doesn't exist" do
       Blogit.configuration.blogger_display_name_method = :display_name
-      @post = user.blog_posts.build
-      lambda { @post.blogger_display_name }.should raise_exception(Blogit::ConfigurationError)
+      @article = user.articles.build
+      lambda { @article.blogger_display_name }.should raise_exception(Blogit::ConfigurationError)
     end
     
   end
@@ -107,25 +107,25 @@ describe Blogit::Post do
     describe :for_index do
       
       before :all do
-        Blogit::Post.destroy_all
-        15.times { |i| create :post, created_at: i.days.ago }
+        Blogit::Article.destroy_all
+        15.times { |i| create :article, created_at: i.days.ago }
       end
       
-      it "should order posts by created_at DESC" do
-        Blogit::Post.for_index.first.should == Blogit::Post.order("created_at DESC").first
+      it "should order articles by created_at DESC" do
+        Blogit::Article.for_index.first.should == Blogit::Article.order("created_at DESC").first
       end
       
-      it "should paginate posts in blocks of 5" do
-        Blogit::Post.for_index.count.should == 5
+      it "should paginate articles in blocks of 5" do
+        Blogit::Article.for_index.count.should == 5
       end
       
       it "should accept page no as an argument" do
-        Blogit::Post.for_index(2).should == Blogit::Post.order("created_at DESC").offset(5).limit(5)
+        Blogit::Article.for_index(2).should == Blogit::Article.order("created_at DESC").offset(5).limit(5)
       end
       
-      it "should change the no of posts per page if paginates_per is set" do
-        Blogit::Post.paginates_per 3
-        Blogit::Post.for_index.count.should eql(3)
+      it "should change the no of articles per page if paginates_per is set" do
+        Blogit::Article.paginates_per 3
+        Blogit::Article.for_index.count.should eql(3)
       end
       
       
@@ -144,8 +144,8 @@ describe Blogit::Post do
   #       config.include_comments = false
   #     end
   #     User.blogs
-  #     @blog_post = Blogit::Post.new
-  #     lambda { @blog_post.comments }.should raise_exception(NoMethodError)
+  #     @article = Blogit::Article.new
+  #     lambda { @article.comments }.should raise_exception(NoMethodError)
   #   end
   # 
   # end

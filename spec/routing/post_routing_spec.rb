@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe PostsController do
+describe ArticlesController do
   
   describe "routing" do
     
@@ -9,17 +9,17 @@ describe PostsController do
       @routes = Blogit::Engine.routes
     end
     
-    it "routes /posts/page/:page to posts#index with page param" do
-      { get: "posts/page/2" }.should route_to({
-        controller: "blogit/posts",
+    it "routes /articles/page/:page to articles#index with page param" do
+      { get: "articles/page/2" }.should route_to({
+        controller: "blogit/articles",
         action: "index",
         page: "2"
       })
     end
     
-    it "routes /posts/tagged/:tag to posts#tagged with tag param" do
-      { get: "posts/tagged/Spiceworld" }.should route_to({
-        controller: "blogit/posts",
+    it "routes /articles/tagged/:tag to articles#tagged with tag param" do
+      { get: "articles/tagged/Spiceworld" }.should route_to({
+        controller: "blogit/articles",
         action: "tagged",
         tag: "Spiceworld"
       })      

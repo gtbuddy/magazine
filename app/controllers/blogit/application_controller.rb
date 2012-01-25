@@ -47,10 +47,10 @@ module Blogit
       send blogit_conf.current_blogger_method
     end
     
-    # Returns true if the current_blogger is the owner of the post
-    # @param post An instance of Blogit::Post
-    def this_blogger?(post)
-      current_blogger == post.blogger
+    # Returns true if the current_blogger is the owner of the article
+    # @param article An instance of Blogit::Article
+    def this_blogger?(article)
+      current_blogger == article.blogger
     end
     
   end

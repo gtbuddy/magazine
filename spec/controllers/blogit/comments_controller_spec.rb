@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe CommentsController do
   
-  let(:blog_post) { Blogit::Post.first || create(:post) }
+  let(:article) { Blogit::Article.first || create(:article) }
     
   describe "POST create" do
     
@@ -10,15 +10,15 @@ describe CommentsController do
       @comment_attributes = attributes_for(:comment)
     end
     
-    def do_post(format = :html)
-      post :create, post_id: blog_post.id, 
+    def do_article(format = :html)
+      article :create, article_id: article.id, 
         comment: @comment_attributes, use_route: :blogit, format: format
     end
     
     describe "whith JS" do
       
       it "should persist comment" do
-        lambda { do_post(:js) }.should change { blog_post.comments.count }.by(1)
+        lambda { do_article(:js) }.should change { article.comments.count }.by(1)
       end
       
       # The rest is handled in the view
@@ -28,16 +28,16 @@ describe CommentsController do
     describe "with HTML" do
       
       it "should persist comment" do
-        lambda { do_post(:html) }.should change { blog_post.comments.count }.by(1)        
+        lambda { do_article(:html) }.should change { article.comments.count }.by(1)        
       end
       
-      it "should redirect to the blog post" do
-        do_post
-        response.should redirect_to(controller.post_url(blog_post))
+      it "should redirect to the blog article" do
+        do_article
+        response.should redirect_to(controller.article_url(article))
       end
 
       it "should display a flash notice" do
-        do_post
+        do_article
         flash[:notice].should be_present
       end
       
@@ -49,11 +49,11 @@ describe CommentsController do
     
     def do_delete(format = :html)
       delete :destroy, id: @comment.id,
-        post_id: blog_post.id, format: format, use_route: :blogit
+        article_id: article.id, format: format, use_route: :blogit
     end
     
     before do
-      @comment  = create(:comment, post: blog_post)  
+      @comment  = create(:comment, article: article)  
     end
     
     describe "when user logged in" do
@@ -65,7 +65,7 @@ describe CommentsController do
       describe "whith JS" do
         
         it "should destroy the comment" do
-          lambda { do_delete(:js) }.should change { blog_post.reload.comments.count }
+          lambda { do_delete(:js) }.should change { article.reload.comments.count }
         end
         
       end
@@ -73,12 +73,12 @@ describe CommentsController do
       describe "with HTML" do
 
         it "should destroy the comment" do
-          lambda { do_delete(:html) }.should change { blog_post.reload.comments.count }
+          lambda { do_delete(:html) }.should change { article.reload.comments.count }
         end
 
-        it "should redirect to the blog post " do
+        it "should redirect to the blog article " do
           do_delete
-          response.should redirect_to(controller.post_url(blog_post))
+          response.should redirect_to(controller.article_url(article))
         end
 
       end

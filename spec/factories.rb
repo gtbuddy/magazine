@@ -3,9 +3,9 @@ FactoryGirl.define do
   # =================
   # = Gem Factories =
   # =================
-  factory :post, class: Blogit::Post do
-    title "Tis is a blog post title"
-    body "This is the body of the blog post - you'll see it's a lot bigger than the title"
+  factory :article, class: Blogit::Article do
+    title "Tis is a blog article title"
+    body "This is the body of the blog article - you'll see it's a lot bigger than the title"
     association :blogger, :factory => :user
   end
   
@@ -14,7 +14,7 @@ FactoryGirl.define do
     email "gavin@gavinmorrice.com"
     website "http://gavinmorrice.com"
     body "I once saw a child the size of a tangerine!"
-    post
+    article
   end
   
   # =======================

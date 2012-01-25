@@ -1,31 +1,31 @@
 require 'spec_helper'
 
-describe PostsController do
+describe ArticlesController do
   
   before do
     reset_configuration
   end
 
-  let(:blog_post) { build :post }
+  let(:article) { build :article }
 
   describe "GET 'index'" do
 
-    let(:posts) { [] }
+    let(:articles) { [] }
     
     def do_get(page=nil)
       get :index, :use_route => :blogit, page: page.to_s
     end
     
-    it "should set posts to Blogit::Post.for_index" do
-      Blogit::Post.expects(:for_index).returns(posts)
+    it "should set articles to Blogit::Article.for_index" do
+      Blogit::Article.expects(:for_index).returns(articles)
       do_get
-      assigns(:posts).should == posts
+      assigns(:articles).should == articles
     end
     
     it "should pass the page param to for_index" do
-      Blogit::Post.expects(:for_index).with("2").returns(posts)
+      Blogit::Article.expects(:for_index).with("2").returns(articles)
       do_get("2")
-      assigns(:posts).should == posts
+      assigns(:articles).should == articles
     end
     
   end
@@ -33,16 +33,16 @@ describe PostsController do
   describe "GET /index.xml" do
     
 
-    let(:posts) { [] }
+    let(:articles) { [] }
     
     def do_get(page=nil)
       get :index, :use_route => :blogit, page: page.to_s, format: :xml
     end
     
-    it "should load all posts in reverse date order" do
-      Blogit::Post.expects(:order).with('created_at DESC').returns(posts)
+    it "should load all articles in reverse date order" do
+      Blogit::Article.expects(:order).with('created_at DESC').returns(articles)
       do_get
-      assigns(:posts).should == posts
+      assigns(:articles).should == articles
     end
     
   end
@@ -64,10 +64,10 @@ describe PostsController do
         response.should be_success
       end
       
-      it "should set post to a new blog post" do
+      it "should set article to a new blog article" do
         do_get
-        assigns(:post).should be_a(Blogit::Post)
-        assigns(:post).should be_a_new_record
+        assigns(:article).should be_a(Blogit::Article)
+        assigns(:article).should be_a_new_record
       end
       
     end
@@ -99,22 +99,22 @@ describe PostsController do
       
       context "with valid params" do
         
-        let(:post_attributes) { attributes_for(:post) }
+        let(:article_attributes) { attributes_for(:article) }
         
-        def do_post
-          post :create, use_route: :blogit, post: post_attributes
+        def do_article
+          article :create, use_route: :blogit, article: article_attributes
         end
         
         before do
-          @blog_posts = []
-          @current_blogger.expects(:blog_posts).returns(@blog_posts)
-          @blog_posts.expects(:new).with(post_attributes.stringify_keys).returns(blog_post)
-          blog_post.expects(:save).returns(true)
+          @articles = []
+          @current_blogger.expects(:articles).returns(@articles)
+          @articles.expects(:new).with(article_attributes.stringify_keys).returns(article)
+          article.expects(:save).returns(true)
         end
                 
-        it "should redirect to the blog post page" do
-          do_post
-          response.should redirect_to(controller.posts_url)
+        it "should redirect to the blog article page" do
+          do_article
+          response.should redirect_to(controller.articles_url)
         end
         
       end
@@ -130,17 +130,17 @@ describe PostsController do
             
       before do
         mock_login
-        @current_blogger.expects(:blog_posts).returns(@blog_posts = [])
-        @blog_posts.expects(:find).with("1").returns(blog_post)
+        @current_blogger.expects(:articles).returns(@articles = [])
+        @articles.expects(:find).with("1").returns(article)
       end
       
       def do_get
         get :edit, :id => 1, use_route: :blogit
       end
       
-      it "should find the blog post by the ID" do
+      it "should find the blog article by the ID" do
         do_get
-        assigns(:post).should eql(blog_post)
+        assigns(:article).should eql(article)
       end
       
     end
@@ -168,24 +168,24 @@ describe PostsController do
     context "when logged in" do
       
       before do
-        @post_attributes = { "title" => "Something new" }
+        @article_attributes = { "title" => "Something new" }
         mock_login
-        @current_blogger.expects(:blog_posts).returns(@blog_posts = [])
-        @blog_posts.expects(:find).with("1").returns(blog_post)
+        @current_blogger.expects(:articles).returns(@articles = [])
+        @articles.expects(:find).with("1").returns(article)
       end
       
       def do_put
-        put :update, id: "1", use_route: :blogit, post: @post_attributes
+        put :update, id: "1", use_route: :blogit, article: @article_attributes
       end
       
-      it "should update the post attributes from params" do
-        blog_post.expects(:update_attributes).with(@post_attributes).returns(true)
+      it "should update the article attributes from params" do
+        article.expects(:update_attributes).with(@article_attributes).returns(true)
         do_put
       end
       
-      it "should redirect to the blog post page" do
+      it "should redirect to the blog article page" do
         do_put
-        response.should redirect_to(controller.post_url(blog_post))
+        response.should redirect_to(controller.article_url(article))
       end
       
       it "should set a flash notice" do
@@ -197,11 +197,11 @@ describe PostsController do
     context "when not logged in" do
       
       before do
-        @post_attributes = { "title" => "Something new" }
+        @article_attributes = { "title" => "Something new" }
       end
       
       def do_put
-        put :update, id: "1", use_route: :blogit, post: @post_attributes
+        put :update, id: "1", use_route: :blogit, article: @article_attributes
       end
       
       # It's not really the responsibility of the gem to manage authentication 
@@ -219,16 +219,16 @@ describe PostsController do
   describe "GET 'show'" do
       
     before do
-      Blogit::Post.expects(:find).with("1").returns(blog_post)
+      Blogit::Article.expects(:find).with("1").returns(article)
     end
     
     def do_get
       get :show, :id => 1, use_route: :blogit
     end
     
-    it "should find blog post by id" do
+    it "should find blog article by id" do
       do_get
-      assigns(:post).should eql(blog_post)
+      assigns(:article).should eql(article)
     end
 
   end
@@ -243,18 +243,18 @@ describe PostsController do
             
       before do
         mock_login
-        @current_blogger.expects(:blog_posts).returns(@blog_posts = [])
-        @blog_posts.expects(:find).with("1").returns(blog_post)
+        @current_blogger.expects(:articles).returns(@articles = [])
+        @articles.expects(:find).with("1").returns(article)
       end
       
-      it "should destroy the blog post" do
-        blog_post.expects(:destroy)
+      it "should destroy the blog article" do
+        article.expects(:destroy)
         do_delete
       end
       
-      it "should redirect to the blog posts url" do
+      it "should redirect to the blog articles url" do
         do_delete
-        response.should redirect_to(controller.posts_url)
+        response.should redirect_to(controller.articles_url)
       end
       
       it "should show a flash notice" do

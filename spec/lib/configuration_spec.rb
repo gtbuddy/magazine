@@ -16,8 +16,8 @@ describe Blogit::Configuration do
     blog_configuration.blogger_display_name_method.should eql(:username)
   end
   
-  it "should set :posts_per_page to 5" do
-    blog_configuration.posts_per_page.should eql(5)
+  it "should set :articles_per_page to 5" do
+    blog_configuration.articles_per_page.should eql(5)
   end
   
   it "should set :authentication_method to :login_required" do
@@ -73,15 +73,15 @@ describe Blogit::Configuration do
     blog_configuration.highlight_code_syntax.should be_true
   end
   
-  it "should set rss_feed_title to 'Rails engine name Blog Posts'" do
-    blog_configuration.rss_feed_title.should eql "#{Rails.application.engine_name.titleize} Blog Posts"
+  it "should set rss_feed_title to 'Rails engine name Blog Articles'" do
+    blog_configuration.rss_feed_title.should eql "#{Rails.application.engine_name.titleize} Blog Articles"
   end
   
-  it "should set rss_feed_description to 'Rails engine name Blog Posts'" do
-    blog_configuration.rss_feed_description.should eql "#{Rails.application.engine_name.titleize} Blog Posts"
+  it "should set rss_feed_description to 'Rails engine name Blog Articles'" do
+    blog_configuration.rss_feed_description.should eql "#{Rails.application.engine_name.titleize} Blog Articles"
   end
 
-  it "should set rss_feed_language to 'Rails engine name Blog Posts'" do
+  it "should set rss_feed_language to 'Rails engine name Blog Articles'" do
     blog_configuration.rss_feed_language.should eql "en"
   end
   

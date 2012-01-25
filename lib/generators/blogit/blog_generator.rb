@@ -18,7 +18,7 @@ class BlogGenerator < Rails::Generators::Base
   end
 
   def create_migration_file
-    migration_template 'create_magazine_posts.rb', 'db/migrate/create_magazine_posts.rb'
+    migration_template 'create_magazine_articles.rb', 'db/migrate/create_magazine_articles.rb'
     migration_template 'create_magazine_comments.rb', 'db/migrate/create_magazine_comments.rb'
   end
 end

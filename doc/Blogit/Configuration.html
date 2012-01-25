@@ -192,7 +192,7 @@ user.
 
   
     <span class="summary_desc"><div class='inline'><p>
-If set to true, only the user who authored the post may, edit or destroy.
+If set to true, only the user who authored the article may, edit or destroy.
 </p>
 </div></span>
   
@@ -413,7 +413,7 @@ included.
 
   
     <span class="summary_desc"><div class='inline'><p>
-If set to true, links for new posts, editing posts and deleting comments
+If set to true, links for new articles, editing articles and deleting comments
 will be available.
 </p>
 </div></span>
@@ -441,7 +441,7 @@ will be available.
 
   
     <span class="summary_desc"><div class='inline'><p>
-Should we include comments for blog posts?.
+Should we include comments for blog articles?.
 </p>
 </div></span>
   
@@ -451,7 +451,7 @@ Should we include comments for blog posts?.
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#posts_per_page-instance_method" title="#posts_per_page (instance method)">- (Object) <strong>posts_per_page</strong> </a>
+      <a href="#articles_per_page-instance_method" title="#articles_per_page (instance method)">- (Object) <strong>articles_per_page</strong> </a>
     
 
     
@@ -468,7 +468,7 @@ Should we include comments for blog posts?.
 
   
     <span class="summary_desc"><div class='inline'><p>
-Number of posts to show per page.
+Number of articles to show per page.
 </p>
 </div></span>
   
@@ -619,7 +619,7 @@ A new instance of Configuration
   <span class='ivar'>@current_blogger_method</span>      <span class='op'>=</span> <span class='symbol'>:current_user</span>
   <span class='ivar'>@blogger_display_name_method</span> <span class='op'>=</span> <span class='symbol'>:username</span>
   <span class='ivar'>@datetime_format</span>             <span class='op'>=</span> <span class='symbol'>:short</span>
-  <span class='ivar'>@posts_per_page</span>              <span class='op'>=</span> <span class='int'>5</span>
+  <span class='ivar'>@articles_per_page</span>              <span class='op'>=</span> <span class='int'>5</span>
   <span class='ivar'>@authentication_method</span>       <span class='op'>=</span> <span class='symbol'>:login_required</span>
   <span class='ivar'>@author_edits_only</span>           <span class='op'>=</span> <span class='kw'>false</span>
   <span class='ivar'>@ajax_comments</span>               <span class='op'>=</span> <span class='kw'>true</span>
@@ -741,7 +741,7 @@ user. Defaults to :login_required
 </p><div class="docstring">
   <div class="discussion">
     <p>
-If set to true, only the user who authored the post may, edit or destroy.
+If set to true, only the user who authored the article may, edit or destroy.
 Defaults to false
 </p>
 
@@ -1107,7 +1107,7 @@ elsewhere in the app
 </p><div class="docstring">
   <div class="discussion">
     <p>
-If set to true, links for new posts, editing posts and deleting comments
+If set to true, links for new articles, editing articles and deleting comments
 will be available. If set to false, you&#8217;ll have to set these 
 yourself in the templates.
 </p>
@@ -1152,7 +1152,7 @@ yourself in the templates.
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Should we include comments for blog posts?
+Should we include comments for blog articles?
 </p>
 
 
@@ -1183,19 +1183,19 @@ Should we include comments for blog posts?
 </div>
     
       
-      <span id="posts_per_page=-instance_method"></span>
-      <span id="posts_per_page-instance_method"></span>
+      <span id="articles_per_page=-instance_method"></span>
+      <span id="articles_per_page-instance_method"></span>
       <div class="method_details ">
-  <p class="signature " id="posts_per_page-instance_method">
+  <p class="signature " id="articles_per_page-instance_method">
   
-    - (<tt>Object</tt>) <strong>posts_per_page</strong> 
+    - (<tt>Object</tt>) <strong>articles_per_page</strong> 
   
 
   
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Number of posts to show per page
+Number of articles to show per page
 </p>
 
 
@@ -1209,7 +1209,7 @@ Number of posts to show per page
     
       <li><a href="https://github.com/amatsuda/kaminari" target="_parent" title="https://github.com/amatsuda/kaminari">https://github.com/amatsuda/kaminari</a></li>
     
-      <li><span class='object_link'><a href="Post.html" title="Blogit::Post (class)">Post</a></span></li>
+      <li><span class='object_link'><a href="Article.html" title="Blogit::Article (class)">Article</a></span></li>
     
   </ul>
 
@@ -1226,8 +1226,8 @@ Number of posts to show per page
     <td>
       <pre class="code"><span class="info file"># File 'lib/blogit/configuration.rb', line 22</span>
 
-<span class='kw'>def</span> <span class='id posts_per_page'>posts_per_page</span>
-  <span class='ivar'>@posts_per_page</span>
+<span class='kw'>def</span> <span class='id articles_per_page'>articles_per_page</span>
+  <span class='ivar'>@articles_per_page</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

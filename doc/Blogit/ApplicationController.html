@@ -109,7 +109,7 @@ ActionController::Base
 
 </div><div id="subclasses">
   <h2>Direct Known Subclasses</h2>
-  <p class="children"><span class='object_link'><a href="CommentsController.html" title="Blogit::CommentsController (class)">CommentsController</a></span>, <span class='object_link'><a href="PostsController.html" title="Blogit::PostsController (class)">PostsController</a></span></p>
+  <p class="children"><span class='object_link'><a href="CommentsController.html" title="Blogit::CommentsController (class)">CommentsController</a></span>, <span class='object_link'><a href="ArticlesController.html" title="Blogit::ArticlesController (class)">ArticlesController</a></span></p>
 </div>
 
 
@@ -288,7 +288,7 @@ Blogit.current_blogger_method is set to.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#this_blogger%3F-instance_method" title="#this_blogger? (instance method)">- (Boolean) <strong>this_blogger?</strong>(post) </a>
+      <a href="#this_blogger%3F-instance_method" title="#this_blogger? (instance method)">- (Boolean) <strong>this_blogger?</strong>(article) </a>
     
 
     
@@ -302,7 +302,7 @@ Blogit.current_blogger_method is set to.
 
   
     <span class="summary_desc"><div class='inline'><p>
-Returns true if the current_blogger is the owner of the post.
+Returns true if the current_blogger is the owner of the article.
 </p>
 </div></span>
   
@@ -582,14 +582,14 @@ Blogit.current_blogger_method is set to
       <div class="method_details ">
   <p class="signature " id="this_blogger?-instance_method">
   
-    - (<tt>Boolean</tt>) <strong>this_blogger?</strong>(post) 
+    - (<tt>Boolean</tt>) <strong>this_blogger?</strong>(article) 
   
 
   
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Returns true if the current_blogger is the owner of the post
+Returns true if the current_blogger is the owner of the article
 </p>
 
 
@@ -601,7 +601,7 @@ Returns true if the current_blogger is the owner of the post
   
     <li>
       
-        <span class='name'>post</span>
+        <span class='name'>article</span>
       
       
         <span class='type'></span>
@@ -610,7 +610,7 @@ Returns true if the current_blogger is the owner of the post
       
         &mdash;
         <div class='inline'><p>
-An instance of Blogit::Post
+An instance of Blogit::Article
 </p>
 </div>
       
@@ -645,8 +645,8 @@ An instance of Blogit::Post
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/blogit/application_controller.rb', line 52</span>
 
-<span class='kw'>def</span> <span class='id this_blogger?'>this_blogger?</span><span class='lparen'>(</span><span class='id post'>post</span><span class='rparen'>)</span>
-  <span class='id current_blogger'>current_blogger</span> <span class='op'>==</span> <span class='id post'>post</span><span class='period'>.</span><span class='id blogger'>blogger</span>
+<span class='kw'>def</span> <span class='id this_blogger?'>this_blogger?</span><span class='lparen'>(</span><span class='id article'>article</span><span class='rparen'>)</span>
+  <span class='id current_blogger'>current_blogger</span> <span class='op'>==</span> <span class='id article'>article</span><span class='period'>.</span><span class='id blogger'>blogger</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

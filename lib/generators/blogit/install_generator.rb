@@ -25,8 +25,8 @@ module Blogit
 		  end
 
 		  def create_migration_file
-		    migration_template 'create_blog_posts.rb', 'db/migrate/create_blog_posts.rb'
-		    migration_template 'create_blog_comments.rb', 'db/migrate/create_blog_comments.rb'
+		    migration_template 'create_articles.rb', 'db/migrate/create_articles.rb'
+		    migration_template 'create_article_comments.rb', 'db/migrate/create_article_comments.rb'
 		  end
 		end
   end

@@ -18,8 +18,8 @@ Blogit.configure do |config|
   # Should the controllers cache the blog pages as HTML?
   config.cache_pages = true
 
-  # No. of posts to show per page
-  config.posts_per_page = 5
+  # No. of articles to show per page
+  config.articles_per_page = 5
 
   # The name of the before filter we'll call to authenticate the current user.
   config.authentication_method = :login_required
@@ -33,7 +33,7 @@ Blogit.configure do |config|
   # yourself elsewhere in the app.
   config.include_admin_actions = true
 
-  # If set to true, links for new posts, editing posts and deleting comments
+  # If set to true, links for new articles, editing articles and deleting comments
   # will be available. If set to false, you'll have to set these 
   # yourself in the templates.
   config.include_admin_links = true

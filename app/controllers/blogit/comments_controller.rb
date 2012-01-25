@@ -7,7 +7,7 @@ module Blogit
 
 
     def create
-      @comment = post.comments.new(params[:comment])
+      @comment = article.comments.new(params[:comment])
       respond_to do |format|
         format.js {
           # the rest is dealt with in the view
@@ -16,9 +16,9 @@ module Blogit
 
         format.html { 
           if @comment.save 
-            redirect_to(post, :notice => "Successfully added comment!")
+            redirect_to(article, :notice => "Successfully added comment!")
           else
-            render "blogit/posts/show"
+            render "blogit/articles/show"
           end
         }
 
@@ -27,18 +27,18 @@ module Blogit
     end
 
     def destroy
-      @comment = post.comments.find(params[:id])
+      @comment = article.comments.find(params[:id])
       @comment.destroy
       respond_to do |format|
-        format.html { redirect_to(post, :notice => "Successfully removed comment.") }        
+        format.html { redirect_to(article, :notice => "Successfully removed comment.") }        
         format.js
       end
     end
     
     private
 
-    def post
-      @post ||= Blogit::Post.find(params[:post_id])
+    def article
+      @article ||= Blogit::Article.find(params[:article_id])
     end
     
   end
