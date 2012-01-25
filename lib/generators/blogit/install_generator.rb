@@ -17,7 +17,7 @@ module Blogit
 					milliseconds = Time.now
 					"%10.6f" % milliseconds.to_f
 					milliseconds = milliseconds.usec
-		      t = Time.new.utc.strftime("%Y%m%d%H%M%S%6N")
+		      t = Time.new.utc.strftime("%Y%m%d%H%M%S")
 					t = t.to_s + milliseconds.to_s
 		    else
 		      "%.3d" % (current_migration_number(dirname) + 1)
