@@ -1,0 +1,7 @@
+<%= render "magazine/articles/article", :article => @article %>
+<% if magazine_conf.include_comments %>
+  <div id="comments">
+    <%= render :partial => "magazine/comments/comment", :collection => @article.comments %>
+  </div>
+  <%= render "magazine/comments/form" %>    
+<% end %>

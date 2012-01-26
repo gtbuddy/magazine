@@ -1,0 +1,5 @@
+<%= content_tag(:div, :class => "article_comments_count", :id => "article_#{article.id}_comments_count") do %>
+  <%= link_to(magazine_article_path(article, :anchor => "comments")) do %>
+    <%= pluralize article.comments_count, "comment" %>
+  <% end %>  
+<% end %>

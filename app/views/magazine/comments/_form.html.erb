@@ -1,0 +1,42 @@
+
+<%= form_for [@article, @comment], :remote => true, 
+  :html => {
+    :class => "new_article_comment", :id => "new_article_comment" } do |f| -%>
+  
+  <p>Leave a comment</p>
+  
+  <%= field :class => "hidden" do %>
+    <%= f.label :nickname %>
+    <%= f.text_field :nickname %>
+    Hide me using CSS
+  <% end %>
+  
+  <%= field do %>
+    <%= f.label :name, "Name *" %><br>
+    <%= f.text_field :name, :value => (current_user.name if current_user) %>
+    <%= errors_on(@comment, :name) %>
+  <% end %>
+  
+  <%= field do %>
+    <%= f.label :email, "Email" %> (never displayed)<br>
+    <%= f.email_field :email %>
+    <%= errors_on(@comment, :email) %>    
+  <% end %>
+
+  <%= field do %>
+    <%= f.label :website, "Your Website" %><br>
+    <%= f.url_field :website %>
+    <%= errors_on(@comment, :website) %>    
+  <% end %>
+
+  
+  <%= field do %>
+    <%= f.label :body, "Your comment *" %><br>
+    <%= f.text_area :body %><br>
+    <%= errors_on(@comment, :body) %>
+  <% end %>
+  
+  <%= actions do %>
+    <%= f.submit "Add Comment", :disable_with => 'Adding Comment...' %>
+  <% end %>
+<% end -%>

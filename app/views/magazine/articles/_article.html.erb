@@ -1,0 +1,19 @@
+<%= content_tag(:article, :id => "article_#{article.id}", :class => "article") do %>
+
+  <%# Render the header for this blog article %>
+  <%= render "magazine/articles/article_head", :article => article %>
+
+  <%# Render the body of this blog article (as Markdown) %>
+  <%= render "magazine/articles/article_body", :article => article %>
+  
+  <%# Render admin links to edit/delete this article %>
+  <%= render "magazine/articles/article_links", :article => article %>
+  
+  <%# Render info about the person who wrote this article %>
+  <%= render "magazine/articles/blogger_information", :article => article %>
+  
+  <%# Render the no. of comments %>
+  <%= render "magazine/articles/comments_count", 
+    :article => article if defined?(show_comments_count) and show_comments_count %>
+  
+<% end %>

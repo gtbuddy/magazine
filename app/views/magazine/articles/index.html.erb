@@ -1,0 +1,17 @@
+<%= login_required :class => "actions", :id => "new_article_link" do %>
+  <%= link_to 'New Article', new_article_path %>
+<% end %>
+
+<% if @articles.any? %>
+
+  <%= render :partial => "magazine/articles/article", 
+    :collection => @articles, 
+    :spacer_template => "article_spacer", 
+    :locals => {:show_comments_count => true}  %>
+<% else %>
+  
+  <%= render :partial => "magazine/articles/empty" %>
+  
+<% end %>
+
+<%= render "pagination" %>

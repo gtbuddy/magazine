@@ -1,0 +1,43 @@
+<%= form_for(@article, :html => {:class => "new_article", :id => "new_article"}) do |f| %>
+
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <%= field do %>
+      <%= f.text_field :title, :placeholder => "Give your article a title" %>
+    <% end %>
+
+    <%= field do %>
+      <%= f.text_area :body, :placeholder => "Write something here..." %>
+    <% end %>
+  </fieldset>
+
+  <fieldset>
+
+    <%= field :id => "new_article_tag_field" do %>
+      <%= f.label :tag_list, "Tags" %>
+      <%= f.text_field :tag_list, :placeholder => "tag one, tag two, etc..." %>
+    <% end %>
+    
+    <p class="article_tip">
+      Tip: you can style your article using <%= magazine_conf.default_parser %>
+    </p>
+
+  </fieldset>
+
+  <%= actions do %>
+    <%= f.submit %> or 
+    <%= link_to("cancel", @article.new_record? ? root_path : article_path(@article)) %>
+  <% end %>
+
+<% end %>
