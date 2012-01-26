@@ -2,13 +2,13 @@ module Blogit
   class Article < ActiveRecord::Base
 
     require "acts-as-taggable-on"
-    require "kaminari"
+    require "will_paginate"
     
     acts_as_taggable    
 
     self.table_name = "articles"
 
-    self.paginates_per Blogit.configuration.articles_per_page
+    self.per_page = Blogit.configuration.articles_per_page
 
     # ===============
     # = Validations =
@@ -35,7 +35,7 @@ module Blogit
     # Returns the blog articles paginated for the index page
     # @scope class
 		
-    scope :for_index, lambda { |page_no| order("created_at DESC").page(page_no) }
+    scope :for_index, lambda { |page_no| order("created_at DESC").paginate(:page => page_no) }
 
     # ====================
     # = Instance Methods =

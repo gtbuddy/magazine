@@ -17,7 +17,7 @@ module Blogit
     attr_accessor :datetime_format
     
     # Number of articles to show per page
-    # @see https://github.com/amatsuda/kaminari
+    # @see https://github.com/mislav/will_paginate
     # @see Blogit::Article
     attr_accessor :articles_per_page
     
