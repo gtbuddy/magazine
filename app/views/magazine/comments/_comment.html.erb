@@ -9,8 +9,8 @@
       <%= format_content comment.body || "" %>
   <% end %>
   
-  <%= article_comment_tag(:footer) do %>
-    Posted on <%= time_tag(@article.created_at, Magazine.configuration.datetime_format) %>
+  <%= content_tag(:footer) do %>
+    Posted on <%= time_tag(comment.created_at, Magazine.configuration.datetime_format) %>
   <% end %>
   
   <%= render :partial => "magazine/comments/admin_links" %>

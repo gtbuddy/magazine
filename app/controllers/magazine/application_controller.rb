@@ -2,7 +2,7 @@ module Magazine
 
   # Inherits from the application's controller instead of ActionController::Base
   class ApplicationController < ::ApplicationController
-      
+    layout "magazine"
     helper :all
     helper_method :current_blogger, :magazine_conf
     

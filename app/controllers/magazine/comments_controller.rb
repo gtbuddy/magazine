@@ -5,9 +5,11 @@ module Magazine
     
     magazine_sweeper(:create, :update, :destroy)
 
+		helper 'magazine/articles'
 
     def create
-      @comment = article.comments.new(params[:comment])
+
+      @comment = article.comments.new(params[:magazine_comment])
       respond_to do |format|
         format.js {
           # the rest is dealt with in the view
@@ -38,7 +40,7 @@ module Magazine
     private
 
     def article
-      @article ||= Magazine::Article.find(params[:article_id])
+      @article ||= Magazine::Article.find(params[:magazine_article_id])
     end
     
   end

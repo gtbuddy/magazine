@@ -1,8 +1,7 @@
 
-<%= form_for [@article, @comment], :remote => true, 
+<%= form_for @comment, :url =>magazine_article_magazine_comments_path(@article), :remote => true, 
   :html => {
     :class => "new_article_comment", :id => "new_article_comment" } do |f| -%>
-  
   <p>Leave a comment</p>
   
   <%= field :class => "hidden" do %>

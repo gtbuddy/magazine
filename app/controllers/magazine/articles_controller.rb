@@ -38,7 +38,7 @@ module Magazine
     end
 
     def new
-      @article = current_blogger.articles.new(params[:article])
+      @article = current_blogger.articles.new(params[:magazine_article])
     end
 
     def edit
@@ -46,7 +46,7 @@ module Magazine
     end
 
     def create
-      @article = current_blogger.articles.new(params[:article])
+      @article = current_blogger.articles.new(params[:magazine_article])
       if @article.save
         redirect_to @article, :notice => 'Article was successfully created.'
       else
@@ -56,7 +56,7 @@ module Magazine
 
     def update
       @article = current_blogger.articles.find(params[:id])
-      if @article.update_attributes(params[:article])
+      if @article.update_attributes(params[:magazine_article])
         redirect_to @article, :notice => 'Article was successfully updated.'
       else
         render :action => "edit"
