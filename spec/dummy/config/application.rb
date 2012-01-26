@@ -4,7 +4,7 @@ require 'rails/all'
 
 Bundler.require
 
-require "blogit"
+require "magazine"
 
 module Dummy
   class Application < Rails::Application

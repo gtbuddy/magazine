@@ -3,13 +3,13 @@ FactoryGirl.define do
   # =================
   # = Gem Factories =
   # =================
-  factory :article, class: Blogit::Article do
+  factory :article, class: Magazine::Article do
     title "Tis is a blog article title"
     body "This is the body of the blog article - you'll see it's a lot bigger than the title"
     association :blogger, :factory => :user
   end
   
-  factory :comment, class: Blogit::Comment do
+  factory :comment, class: Magazine::Comment do
     name "Gavin"
     email "gavin@gavinmorrice.com"
     website "http://gavinmorrice.com"

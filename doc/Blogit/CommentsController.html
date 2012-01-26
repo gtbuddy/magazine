@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
-  Class: Blogit::CommentsController
+  Class: Magazine::CommentsController
   
     &mdash; Documentation by YARD 0.7.3
   
@@ -34,7 +34,7 @@
       <div id="menu">
   
     <a href="../_index.html">Index (C)</a> &raquo; 
-    <span class='title'><span class='object_link'><a href="../Blogit.html" title="Blogit (module)">Blogit</a></span></span>
+    <span class='title'><span class='object_link'><a href="../Magazine.html" title="Magazine (module)">Magazine</a></span></span>
      &raquo; 
     <span class="title">CommentsController</span>
   
@@ -56,7 +56,7 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><h1>Class: Blogit::CommentsController
+    <div id="content"><h1>Class: Magazine::CommentsController
   
   
   
@@ -66,16 +66,16 @@
   
     <dt class="r1">Inherits:</dt>
     <dd class="r1">
-      <span class="inheritName"><span class='object_link'><a href="ApplicationController.html" title="Blogit::ApplicationController (class)">ApplicationController</a></span></span>
+      <span class="inheritName"><span class='object_link'><a href="ApplicationController.html" title="Magazine::ApplicationController (class)">ApplicationController</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
           
             <li class="next">ApplicationController</li>
           
-            <li class="next"><span class='object_link'><a href="ApplicationController.html" title="Blogit::ApplicationController (class)">ApplicationController</a></span></li>
+            <li class="next"><span class='object_link'><a href="ApplicationController.html" title="Magazine::ApplicationController (class)">ApplicationController</a></span></li>
           
-            <li class="next">Blogit::CommentsController</li>
+            <li class="next">Magazine::CommentsController</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -91,7 +91,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">app/controllers/blogit/comments_controller.rb</dd>
+    <dd class="r2 last">app/controllers/magazine/comments_controller.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -171,8 +171,8 @@
   
   
   
-  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="ApplicationController.html" title="Blogit::ApplicationController (class)">ApplicationController</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="ApplicationController.html#blogit_authenticate-class_method" title="Blogit::ApplicationController.blogit_authenticate (method)">blogit_authenticate</a></span>, <span class='object_link'><a href="ApplicationController.html#blogit_cacher-class_method" title="Blogit::ApplicationController.blogit_cacher (method)">blogit_cacher</a></span>, <span class='object_link'><a href="ApplicationController.html#blogit_conf-class_method" title="Blogit::ApplicationController.blogit_conf (method)">blogit_conf</a></span>, <span class='object_link'><a href="ApplicationController.html#blogit_conf-instance_method" title="Blogit::ApplicationController#blogit_conf (method)">#blogit_conf</a></span>, <span class='object_link'><a href="ApplicationController.html#blogit_sweeper-class_method" title="Blogit::ApplicationController.blogit_sweeper (method)">blogit_sweeper</a></span>, <span class='object_link'><a href="ApplicationController.html#current_blogger-instance_method" title="Blogit::ApplicationController#current_blogger (method)">#current_blogger</a></span>, <span class='object_link'><a href="ApplicationController.html#this_blogger%3F-instance_method" title="Blogit::ApplicationController#this_blogger? (method)">#this_blogger?</a></span></p>
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="ApplicationController.html" title="Magazine::ApplicationController (class)">ApplicationController</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="ApplicationController.html#magazine_authenticate-class_method" title="Magazine::ApplicationController.magazine_authenticate (method)">magazine_authenticate</a></span>, <span class='object_link'><a href="ApplicationController.html#magazine_cacher-class_method" title="Magazine::ApplicationController.magazine_cacher (method)">magazine_cacher</a></span>, <span class='object_link'><a href="ApplicationController.html#magazine_conf-class_method" title="Magazine::ApplicationController.magazine_conf (method)">magazine_conf</a></span>, <span class='object_link'><a href="ApplicationController.html#magazine_conf-instance_method" title="Magazine::ApplicationController#magazine_conf (method)">#magazine_conf</a></span>, <span class='object_link'><a href="ApplicationController.html#magazine_sweeper-class_method" title="Magazine::ApplicationController.magazine_sweeper (method)">magazine_sweeper</a></span>, <span class='object_link'><a href="ApplicationController.html#current_blogger-instance_method" title="Magazine::ApplicationController#current_blogger (method)">#current_blogger</a></span>, <span class='object_link'><a href="ApplicationController.html#this_blogger%3F-instance_method" title="Magazine::ApplicationController#this_blogger? (method)">#this_blogger?</a></span></p>
 
   
 
@@ -214,7 +214,7 @@
 27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/comments_controller.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/magazine/comments_controller.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id create'>create</span>
   <span class='ivar'>@comment</span> <span class='op'>=</span> <span class='id article'>article</span><span class='period'>.</span><span class='id comments'>comments</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:comment</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -228,7 +228,7 @@
       <span class='kw'>if</span> <span class='ivar'>@comment</span><span class='period'>.</span><span class='id save'>save</span> 
         <span class='id redirect_to'>redirect_to</span><span class='lparen'>(</span><span class='id article'>article</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Successfully added comment!</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
       <span class='kw'>else</span>
-        <span class='id render'>render</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>blogit/articles/show</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id render'>render</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>magazine/articles/show</span><span class='tstring_end'>&quot;</span></span>
       <span class='kw'>end</span>
     <span class='rbrace'>}</span>
 
@@ -263,7 +263,7 @@
 36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/comments_controller.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/magazine/comments_controller.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id destroy'>destroy</span>
   <span class='ivar'>@comment</span> <span class='op'>=</span> <span class='id article'>article</span><span class='period'>.</span><span class='id comments'>comments</span><span class='period'>.</span><span class='id find'>find</span><span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>

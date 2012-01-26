@@ -1,7 +1,0 @@
-<%= render "/blogit/articles/article", :article => @article %>
-<% if blogit_conf.include_comments %>
-  <div id="comments">
-    <%= render @article.comments %>
-  </div>
-  <%= render "blogit/comments/form" %>    
-<% end %>

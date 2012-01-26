@@ -3,7 +3,7 @@ def mock_login
   controller.expects(:current_user).at_least_once.returns(@current_blogger)
 end
 def reset_configuration
-  Blogit.configure do |config|
+  Magazine.configure do |config|
     config.current_blogger_method = :current_user
   end
 end

@@ -1,5 +1,5 @@
-# These configuration options can be used to customise the behaviour of Blogit
-Blogit.configure do |config|
+# These configuration options can be used to customise the behaviour of Magazine
+Magazine.configure do |config|
   
   # Do you want to add comments to your blog?
   config.include_comments = true

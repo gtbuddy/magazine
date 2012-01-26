@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
-  Class: Blogit::BlogitSweeper
+  Class: Magazine::MagazineSweeper
   
     &mdash; Documentation by YARD 0.7.3
   
@@ -34,9 +34,9 @@
       <div id="menu">
   
     <a href="../_index.html">Index (B)</a> &raquo; 
-    <span class='title'><span class='object_link'><a href="../Blogit.html" title="Blogit (module)">Blogit</a></span></span>
+    <span class='title'><span class='object_link'><a href="../Magazine.html" title="Magazine (module)">Magazine</a></span></span>
      &raquo; 
-    <span class="title">BlogitSweeper</span>
+    <span class="title">MagazineSweeper</span>
   
   
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
@@ -56,7 +56,7 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><h1>Class: Blogit::BlogitSweeper
+    <div id="content"><h1>Class: Magazine::MagazineSweeper
   
   
   
@@ -73,7 +73,7 @@
           
             <li class="next">ActionController::Caching::Sweeper</li>
           
-            <li class="next">Blogit::BlogitSweeper</li>
+            <li class="next">Magazine::MagazineSweeper</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -89,7 +89,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">app/sweepers/blogit/blogit_sweeper.rb</dd>
+    <dd class="r2 last">app/sweepers/magazine/magazine_sweeper.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -103,7 +103,7 @@ of dead links from tags clouds etc.
 </p>
 <p>
 To activate page caching, set <tt>config.cache_pages = true</tt> in your
-blogit.rb file
+magazine.rb file
 </p>
 
 
@@ -176,7 +176,7 @@ blogit.rb file
 15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/sweepers/blogit/blogit_sweeper.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'app/sweepers/magazine/magazine_sweeper.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id after_save'>after_save</span><span class='lparen'>(</span><span class='id record'>record</span><span class='rparen'>)</span>
   <span class='id clear_cached_pages'>clear_cached_pages</span>

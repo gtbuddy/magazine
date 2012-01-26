@@ -25,10 +25,10 @@ article.article {
   color: silver;
 }
 
-#new_blogit_article_link{
+#new_magazine_article_link{
   text-align: right;
 }
-#new_blogit_article, .edit_blogit_article{
+#new_magazine_article, .edit_magazine_article{
   width: 100%;
 }
 #article_title, #article_body{

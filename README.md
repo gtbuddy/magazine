@@ -1,6 +1,6 @@
-# Blogit (beta)
+# Magazine (beta)
 
-Blogit is a flexible blogging solution for Rails apps. It:
+Magazine is a flexible blogging solution for Rails apps. It:
 
 * Is Rack based;
 * Is a complete MVC solution based on Rails engines;
@@ -11,7 +11,7 @@ Blogit is a flexible blogging solution for Rails apps. It:
 Add this to your Gemfile
 
 ``` ruby
-gem "blogit"
+gem "magazine"
 ```
 
 ...and run `bundle install` to install the gem.
@@ -20,9 +20,9 @@ Next, run:
 
 ``` bash
 # add an initializer to config/initializers with all of the configuration options
-$ rails g blogit:install
+$ rails g magazine:install
 # This will add the necessary migrations to your app's db/migrate directory
-rake blogit:install:migrations
+rake magazine:install:migrations
 # This will run any pending migrations
 rake db:migrate
 ``` 
@@ -30,7 +30,7 @@ then add the following to your routes.rb file:
 
 ``` bash
 # config/routes.rb
-mount Blogit::Engine => "/blog"
+mount Magazine::Engine => "/blog"
 ```
 
 ... and finally, declare which of your models acts as blogger in your app (usually User).
@@ -45,8 +45,8 @@ end
 
 ## Configuration
 
-Running `rails g blogit:install` will add an initializer file named blogit.rb. In here
-you can set various configuration options. Please [read the documentation](http://rubydoc.info/gems/blogit/Blogit/Configuration) for a full list of the options available.
+Running `rails g magazine:install` will add an initializer file named magazine.rb. In here
+you can set various configuration options. Please [read the documentation](http://rubydoc.info/gems/magazine/Magazine/Configuration) for a full list of the options available.
 
 ## At no extra cost...
 
@@ -58,18 +58,18 @@ we'll also throw in:
 
 ## Issues
 
-If you discover a problem with Blogit, please let us know about it. 
+If you discover a problem with Magazine, please let us know about it. 
 
-**Remember** to search the [issues list](https://github.com/KatanaCode/blogit/issues) first in case your issue has already been raised
+**Remember** to search the [issues list](https://github.com/KatanaCode/magazine/issues) first in case your issue has already been raised
 by another Githuber
 
 ## Documentation
 
-Full documentation is available here: http://rubydoc.info/gems/blogit
+Full documentation is available here: http://rubydoc.info/gems/magazine
 
 ## Contributing
 
-You're welcome to contribute to Blogit. Please consult the [contribution guidelines](https://github.com/KatanaCode/blogit/wiki/Contributing) for more info.
+You're welcome to contribute to Magazine. Please consult the [contribution guidelines](https://github.com/KatanaCode/magazine/wiki/Contributing) for more info.
 
 ## Legal Stuff
 

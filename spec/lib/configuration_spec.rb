@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe Blogit::Configuration do
+describe Magazine::Configuration do
   
-  let(:blog_configuration) { @blog_configuration = Blogit::Configuration.new }
+  let(:blog_configuration) { @blog_configuration = Magazine::Configuration.new }
   
   it "should set :include_comments to true" do
     blog_configuration.include_comments.should be_true
@@ -54,7 +54,7 @@ describe Blogit::Configuration do
   
   it "should return default_parser as class with default_parser_class" do
     blog_configuration.default_parser = :textile
-    blog_configuration.default_parser_class.should eql(Blogit::Parsers::TextileParser)
+    blog_configuration.default_parser_class.should eql(Magazine::Parsers::TextileParser)
   end
   
   it "should set redcarpet default options" do

@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
   resource :session, :only => [:new, :create, :destroy]
 
-  mount Blogit::Engine => "/blog"
+  mount Magazine::Engine => "/blog"
   
   resources :users  
   
-  root :to => "blogit/articles#index"
+  root :to => "magazine/articles#index"
   
 end

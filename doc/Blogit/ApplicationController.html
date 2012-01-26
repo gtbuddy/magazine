@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
-  Class: Blogit::ApplicationController
+  Class: Magazine::ApplicationController
   
     &mdash; Documentation by YARD 0.7.3
   
@@ -34,7 +34,7 @@
       <div id="menu">
   
     <a href="../_index.html">Index (A)</a> &raquo; 
-    <span class='title'><span class='object_link'><a href="../Blogit.html" title="Blogit (module)">Blogit</a></span></span>
+    <span class='title'><span class='object_link'><a href="../Magazine.html" title="Magazine (module)">Magazine</a></span></span>
      &raquo; 
     <span class="title">ApplicationController</span>
   
@@ -56,7 +56,7 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><h1>Class: Blogit::ApplicationController
+    <div id="content"><h1>Class: Magazine::ApplicationController
   
   
   
@@ -73,7 +73,7 @@
           
             <li class="next">ApplicationController</li>
           
-            <li class="next">Blogit::ApplicationController</li>
+            <li class="next">Magazine::ApplicationController</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -89,7 +89,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">app/controllers/blogit/application_controller.rb</dd>
+    <dd class="r2 last">app/controllers/magazine/application_controller.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -109,7 +109,7 @@ ActionController::Base
 
 </div><div id="subclasses">
   <h2>Direct Known Subclasses</h2>
-  <p class="children"><span class='object_link'><a href="CommentsController.html" title="Blogit::CommentsController (class)">CommentsController</a></span>, <span class='object_link'><a href="ArticlesController.html" title="Blogit::ArticlesController (class)">ArticlesController</a></span></p>
+  <p class="children"><span class='object_link'><a href="CommentsController.html" title="Magazine::CommentsController (class)">CommentsController</a></span>, <span class='object_link'><a href="ArticlesController.html" title="Magazine::ArticlesController (class)">ArticlesController</a></span></p>
 </div>
 
 
@@ -129,7 +129,7 @@ ActionController::Base
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#blogit_authenticate-class_method" title="blogit_authenticate (class method)">+ (Object) <strong>blogit_authenticate</strong>(options = {}) </a>
+      <a href="#magazine_authenticate-class_method" title="magazine_authenticate (class method)">+ (Object) <strong>magazine_authenticate</strong>(options = {}) </a>
     
 
     
@@ -144,7 +144,7 @@ ActionController::Base
   
     <span class="summary_desc"><div class='inline'><p>
 Sets a class method to specify a before-filter calling whatever
-Blogit.configuration.authentication_method is set to Accepts the usual
+Magazine.configuration.authentication_method is set to Accepts the usual
 before_filter optionss.
 </p>
 </div></span>
@@ -155,7 +155,7 @@ before_filter optionss.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#blogit_cacher-class_method" title="blogit_cacher (class method)">+ (Object) <strong>blogit_cacher</strong>(*args) </a>
+      <a href="#magazine_cacher-class_method" title="magazine_cacher (class method)">+ (Object) <strong>magazine_cacher</strong>(*args) </a>
     
 
     
@@ -170,7 +170,7 @@ before_filter optionss.
   
     <span class="summary_desc"><div class='inline'><p>
 Turns on page caching for the given actions if 
-Blogit.configuration.cache_pages is true.
+Magazine.configuration.cache_pages is true.
 </p>
 </div></span>
   
@@ -180,7 +180,7 @@ Blogit.configuration.cache_pages is true.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#blogit_conf-class_method" title="blogit_conf (class method)">+ (Object) <strong>blogit_conf</strong> </a>
+      <a href="#magazine_conf-class_method" title="magazine_conf (class method)">+ (Object) <strong>magazine_conf</strong> </a>
     
 
     
@@ -194,7 +194,7 @@ Blogit.configuration.cache_pages is true.
 
   
     <span class="summary_desc"><div class='inline'><p>
-A helper method to access the Blogit::configuration at the class level.
+A helper method to access the Magazine::configuration at the class level.
 </p>
 </div></span>
   
@@ -204,7 +204,7 @@ A helper method to access the Blogit::configuration at the class level.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#blogit_sweeper-class_method" title="blogit_sweeper (class method)">+ (Object) <strong>blogit_sweeper</strong>(*args) </a>
+      <a href="#magazine_sweeper-class_method" title="magazine_sweeper (class method)">+ (Object) <strong>magazine_sweeper</strong>(*args) </a>
     
 
     
@@ -219,7 +219,7 @@ A helper method to access the Blogit::configuration at the class level.
   
     <span class="summary_desc"><div class='inline'><p>
 Sets a cache sweeper to observe changes if 
-Blogit.configuration.cache_pages is true.
+Magazine.configuration.cache_pages is true.
 </p>
 </div></span>
   
@@ -238,7 +238,7 @@ Blogit.configuration.cache_pages is true.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#blogit_conf-instance_method" title="#blogit_conf (instance method)">- (Object) <strong>blogit_conf</strong> </a>
+      <a href="#magazine_conf-instance_method" title="#magazine_conf (instance method)">- (Object) <strong>magazine_conf</strong> </a>
     
 
     
@@ -252,7 +252,7 @@ Blogit.configuration.cache_pages is true.
 
   
     <span class="summary_desc"><div class='inline'><p>
-A helper method to access the Blogit::configuration at the controller
+A helper method to access the Magazine::configuration at the controller
 instance level.
 </p>
 </div></span>
@@ -278,7 +278,7 @@ instance level.
   
     <span class="summary_desc"><div class='inline'><p>
 Returns the currently logged in blogger by calling whatever
-Blogit.current_blogger_method is set to.
+Magazine.current_blogger_method is set to.
 </p>
 </div></span>
   
@@ -320,9 +320,9 @@ Returns true if the current_blogger is the owner of the article.
     
     
       <div class="method_details first">
-  <p class="signature first" id="blogit_authenticate-class_method">
+  <p class="signature first" id="magazine_authenticate-class_method">
   
-    + (<tt>Object</tt>) <strong>blogit_authenticate</strong>(options = {}) 
+    + (<tt>Object</tt>) <strong>magazine_authenticate</strong>(options = {}) 
   
 
   
@@ -330,7 +330,7 @@ Returns true if the current_blogger is the owner of the article.
   <div class="discussion">
     <p>
 Sets a class method to specify a before-filter calling whatever
-Blogit.configuration.authentication_method is set to Accepts the usual
+Magazine.configuration.authentication_method is set to Accepts the usual
 before_filter optionss
 </p>
 
@@ -351,10 +351,10 @@ before_filter optionss
 14</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/application_controller.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/magazine/application_controller.rb', line 12</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id blogit_authenticate'>blogit_authenticate</span><span class='lparen'>(</span><span class='id options'>options</span> <span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id before_filter'>before_filter</span> <span class='id blogit_conf'>blogit_conf</span><span class='period'>.</span><span class='id authentication_method'>authentication_method</span><span class='comma'>,</span> <span class='id options'>options</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id magazine_authenticate'>magazine_authenticate</span><span class='lparen'>(</span><span class='id options'>options</span> <span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id before_filter'>before_filter</span> <span class='id magazine_conf'>magazine_conf</span><span class='period'>.</span><span class='id authentication_method'>authentication_method</span><span class='comma'>,</span> <span class='id options'>options</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -362,9 +362,9 @@ before_filter optionss
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="blogit_cacher-class_method">
+  <p class="signature " id="magazine_cacher-class_method">
   
-    + (<tt>Object</tt>) <strong>blogit_cacher</strong>(*args) 
+    + (<tt>Object</tt>) <strong>magazine_cacher</strong>(*args) 
   
 
   
@@ -372,7 +372,7 @@ before_filter optionss
   <div class="discussion">
     <p>
 Turns on page caching for the given actions if 
-Blogit.configuration.cache_pages is true
+Magazine.configuration.cache_pages is true
 </p>
 
 
@@ -394,10 +394,10 @@ Blogit.configuration.cache_pages is true
 28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/application_controller.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/magazine/application_controller.rb', line 24</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id blogit_cacher'>blogit_cacher</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id blogit_conf'>blogit_conf</span><span class='period'>.</span><span class='id cache_pages'>cache_pages</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id magazine_cacher'>magazine_cacher</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id magazine_conf'>magazine_conf</span><span class='period'>.</span><span class='id cache_pages'>cache_pages</span>
     <span class='id caches_page'>caches_page</span> <span class='op'>*</span><span class='id args'>args</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -407,16 +407,16 @@ Blogit.configuration.cache_pages is true
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="blogit_conf-class_method">
+  <p class="signature " id="magazine_conf-class_method">
   
-    + (<tt>Object</tt>) <strong>blogit_conf</strong> 
+    + (<tt>Object</tt>) <strong>magazine_conf</strong> 
   
 
   
 </p><div class="docstring">
   <div class="discussion">
     <p>
-A helper method to access the Blogit::configuration at the class level
+A helper method to access the Magazine::configuration at the class level
 </p>
 
 
@@ -436,10 +436,10 @@ A helper method to access the Blogit::configuration at the class level
 20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/application_controller.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/magazine/application_controller.rb', line 18</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id blogit_conf'>blogit_conf</span>
-  <span class='const'>Blogit</span><span class='op'>::</span><span class='id configuration'>configuration</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id magazine_conf'>magazine_conf</span>
+  <span class='const'>Magazine</span><span class='op'>::</span><span class='id configuration'>configuration</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -447,9 +447,9 @@ A helper method to access the Blogit::configuration at the class level
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="blogit_sweeper-class_method">
+  <p class="signature " id="magazine_sweeper-class_method">
   
-    + (<tt>Object</tt>) <strong>blogit_sweeper</strong>(*args) 
+    + (<tt>Object</tt>) <strong>magazine_sweeper</strong>(*args) 
   
 
   
@@ -457,7 +457,7 @@ A helper method to access the Blogit::configuration at the class level
   <div class="discussion">
     <p>
 Sets a cache sweeper to observe changes if 
-Blogit.configuration.cache_pages is true
+Magazine.configuration.cache_pages is true
 </p>
 
 
@@ -479,11 +479,11 @@ Blogit.configuration.cache_pages is true
 36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/application_controller.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/magazine/application_controller.rb', line 32</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id blogit_sweeper'>blogit_sweeper</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id blogit_conf'>blogit_conf</span><span class='period'>.</span><span class='id cache_pages'>cache_pages</span>
-    <span class='id cache_sweeper'>cache_sweeper</span> <span class='const'>Blogit</span><span class='op'>::</span><span class='const'>BlogitSweeper</span><span class='comma'>,</span> <span class='label'>only:</span> <span class='id args'>args</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id magazine_sweeper'>magazine_sweeper</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id magazine_conf'>magazine_conf</span><span class='period'>.</span><span class='id cache_pages'>cache_pages</span>
+    <span class='id cache_sweeper'>cache_sweeper</span> <span class='const'>Magazine</span><span class='op'>::</span><span class='const'>MagazineSweeper</span><span class='comma'>,</span> <span class='label'>only:</span> <span class='id args'>args</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -498,16 +498,16 @@ Blogit.configuration.cache_pages is true
     
     
       <div class="method_details first">
-  <p class="signature first" id="blogit_conf-instance_method">
+  <p class="signature first" id="magazine_conf-instance_method">
   
-    - (<tt>Object</tt>) <strong>blogit_conf</strong> 
+    - (<tt>Object</tt>) <strong>magazine_conf</strong> 
   
 
   
 </p><div class="docstring">
   <div class="discussion">
     <p>
-A helper method to access the Blogit::configuration at the controller
+A helper method to access the Magazine::configuration at the controller
 instance level
 </p>
 
@@ -528,10 +528,10 @@ instance level
 42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/application_controller.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/magazine/application_controller.rb', line 40</span>
 
-<span class='kw'>def</span> <span class='id blogit_conf'>blogit_conf</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id blogit_conf'>blogit_conf</span>
+<span class='kw'>def</span> <span class='id magazine_conf'>magazine_conf</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id magazine_conf'>magazine_conf</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -549,7 +549,7 @@ instance level
   <div class="discussion">
     <p>
 Returns the currently logged in blogger by calling whatever
-Blogit.current_blogger_method is set to
+Magazine.current_blogger_method is set to
 </p>
 
 
@@ -569,10 +569,10 @@ Blogit.current_blogger_method is set to
 48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/application_controller.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/magazine/application_controller.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id current_blogger'>current_blogger</span>
-  <span class='id send'>send</span> <span class='id blogit_conf'>blogit_conf</span><span class='period'>.</span><span class='id current_blogger_method'>current_blogger_method</span>
+  <span class='id send'>send</span> <span class='id magazine_conf'>magazine_conf</span><span class='period'>.</span><span class='id current_blogger_method'>current_blogger_method</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -610,7 +610,7 @@ Returns true if the current_blogger is the owner of the article
       
         &mdash;
         <div class='inline'><p>
-An instance of Blogit::Article
+An instance of Magazine::Article
 </p>
 </div>
       
@@ -643,7 +643,7 @@ An instance of Blogit::Article
 54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/blogit/application_controller.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/magazine/application_controller.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id this_blogger?'>this_blogger?</span><span class='lparen'>(</span><span class='id article'>article</span><span class='rparen'>)</span>
   <span class='id current_blogger'>current_blogger</span> <span class='op'>==</span> <span class='id article'>article</span><span class='period'>.</span><span class='id blogger'>blogger</span>
