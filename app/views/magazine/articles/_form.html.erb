@@ -1,13 +1,14 @@
 <% content_for :head do %>
-  <%= include_javascripts :home %>
+<%= javascript_include_tag "vendor/jquery-1.7.1.min.js", "vendor/markdown/markitup/jquery.markitup.js", "vendor/markdown/markitup/sets/markdown/set.js" %>
+<%= stylesheet_link_tag "markdown/markitup/skins/markitup/style.css", "markdown/markitup/sets/markdown/style.css" %>
+
   <script type="text/javascript" >
      $(document).ready(function() {
-        $("#magazine_article_body").markItUp();
+        $("#magazine_article_body").markItUp(myMarkdownSettings);
      });
   </script>
 
-  <%= javascript_include_tag "vendor/markdown/markitup/jquery.markitup.js", "vendor/markdown/markitup/sets/default/set.js", "vendor/jquery-1.7.1.min.js" %>
-  <%= stylesheet_link_tag "markdown/markitup/skins/markitup/style.css", "markdown/markitup/sets/default/style.css" %>
+
 <% end %>
 
 
