@@ -1,3 +1,16 @@
+<% content_for :head do %>
+  <%= include_javascripts :home %>
+  <script type="text/javascript" >
+     $(document).ready(function() {
+        $("#magazine_article_body").markItUp();
+     });
+  </script>
+
+  <%= javascript_include_tag "vendor/markdown/markitup/jquery.markitup.js", "vendor/markdown/markitup/sets/default/set.js", "vendor/jquery-1.7.1.min.js" %>
+  <%= stylesheet_link_tag "markdown/markitup/skins/markitup/style.css", "markdown/markitup/sets/default/style.css" %>
+<% end %>
+
+
 <%= form_for(@article, :html => {:class => "new_article", :id => "new_article"}) do |f| %>
 
   <% if @article.errors.any? %>
