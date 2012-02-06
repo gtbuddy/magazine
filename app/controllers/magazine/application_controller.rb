@@ -4,6 +4,8 @@ module Magazine
   class ApplicationController < ::ApplicationController
     # layout "magazine"
     helper :all
+    helper 'magazine/application'
+
     helper_method :current_blogger, :magazine_conf
     
     # Sets a class method to specify a before-filter calling
