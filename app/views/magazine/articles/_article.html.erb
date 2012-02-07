@@ -10,10 +10,16 @@
   <%= render "magazine/articles/article_links", :article => article %>
   
   <%# Render info about the person who wrote this article %>
-  <%= render "magazine/articles/blogger_information", :article => article %>
+  <div id='comments_footer'>
+    <%= render "magazine/articles/blogger_information", :article => article %>
+  </div>
   
   <%# Render the no. of comments %>
-  <%= render "magazine/articles/comments_count", 
-    :article => article if defined?(show_comments_count) and show_comments_count %>
+    <%= render "magazine/articles/comments_count", 
+      :article => article if defined?(show_comments_count) and show_comments_count %>
+
+  <div id='social_networks'>
+    <%= render "magazine/articles/social_networking" %>    
+  </div>
   
 <% end %>
