@@ -15,3 +15,9 @@
 <% end %>
 
 <%= render "pagination" %>
+
+<br />
+<%= login_required :class => "actions", :id => "new_article_link" do %>
+  <h3><%= link_to("Submit Article!", new_magazine_article_path) %></h3>
+<% end %>
+
