@@ -1,0 +1,4 @@
+<h2>Articles pending of review</h2>
+<% @articles.each do |article| %>
+  <%= link_to article.title, magazine_article_path(article)  %>
+<% end %>
