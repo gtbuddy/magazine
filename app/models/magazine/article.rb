@@ -36,6 +36,7 @@ module Magazine
     # @scope class
 		
     scope :for_index, lambda { |page_no| order("created_at DESC").paginate(:page => page_no) }
+    scope :review, where(:needs_review => true)
 
     # ====================
     # = Instance Methods =

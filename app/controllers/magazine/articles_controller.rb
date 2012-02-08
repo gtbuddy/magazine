@@ -70,6 +70,7 @@ module Magazine
     end
 
     def review
+      @articles = Article.review
     end
 
     private
