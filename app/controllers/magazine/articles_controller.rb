@@ -69,6 +69,9 @@ module Magazine
       redirect_to articles_url, :notice => "Article was successfully destroyed."
     end
 
+    def review
+    end
+
     private
 
     def raise_404
