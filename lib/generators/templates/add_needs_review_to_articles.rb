@@ -1,6 +1,6 @@
 class AddNeedsReviewToArticles < ActiveRecord::Migration
   def self.up
-    add_column :articles, :needs_review, :default => true
+    add_column :articles, :needs_review, :boolean, :default => true
   end
 
   def self.down
