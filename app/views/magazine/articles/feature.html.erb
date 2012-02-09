@@ -6,7 +6,7 @@
       <%= link_to article.title, magazine_article_path(article)  %>
     </td>
     <td>
-      <%= link_to article.featured ? 'unfeature' : 'feature' , ''  %>
+      <%= link_to article.featured ? 'unfeature' : 'feature' , toggle_feature_articles_path(article)  %>
     </td>
   </tr>
   <% end %>

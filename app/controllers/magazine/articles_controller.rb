@@ -77,6 +77,15 @@ module Magazine
       @articles = Article.all
     end
 
+    def toggle_feature
+      @article = Article.find(params[:id])
+      if @article.toggle_feature
+        redirect_to feature_magazine_articles_path, :notice => 'Article was successfully updated.'
+      else
+        redirect_to feature_magazine_articles_path, :notice => 'Article was not successfully updated.'
+      end
+    end
+
     private
 
     def raise_404

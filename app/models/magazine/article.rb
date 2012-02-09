@@ -58,5 +58,10 @@ module Magazine
         self.blogger.send Magazine.configuration.blogger_display_name_method        
       end
     end
+
+    def toggle_feature
+      update_attribute :featured, !featured
+    end
+
   end
 end

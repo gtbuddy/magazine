@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   # Keep these above the articles resources block
+  match "magazine/articles/toggle_feature/:id" => 'articles#toggle_feature', :as => :toggle_feature_articles
   match "articles/review/" => 'articles#review', :as => :review_articles
   match "articles/feature/" => 'articles#feature', :as => :feature_articles
   match "articles/page/:page" => "articles#index"
