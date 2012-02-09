@@ -27,7 +27,8 @@ module Magazine
 		  def create_migration_file
         migration_template 'create_articles.rb', 'db/migrate/create_articles.rb'
         migration_template 'create_article_comments.rb', 'db/migrate/create_article_comments.rb'
-		    migration_template 'add_needs_review_to_articles.rb', 'db/migrate/add_needs_review_to_articles.rb'
+        migration_template 'add_needs_review_to_articles.rb', 'db/migrate/add_needs_review_to_articles.rb'
+		    migration_template 'add_featured_to_articles.rb', 'db/migrate/add_featured_to_articles.rb'
 		  end
 		end
   end
