@@ -30,6 +30,10 @@ module Magazine
     # The name of the before filter we'll call to authenticate the current user.
     # Defaults to :login_required
     attr_accessor :authentication_method
+
+    # The name of the before filter we'll call to authenticate the current user.
+    # Defaults to :login_required
+    attr_accessor :admin_authenticated_method
     
     # If set to true, only the user who authored the article may, edit or destroy.
     # Defaults to false

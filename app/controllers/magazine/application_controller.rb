@@ -14,6 +14,13 @@ module Magazine
     def self.magazine_authenticate(options ={})
       before_filter magazine_conf.authentication_method, options
     end
+
+    # Sets a class method to specify a before-filter calling
+    # whatever Magazine.configuration.admin_authenticated_method is set to
+    # Accepts the usual before_filter optionss
+    def self.magazine_authenticate_admin(options ={})
+      before_filter magazine_conf.admin_authenticated_method, options
+    end
     
     # A helper method to access the Magazine::configuration
     # at the class level
