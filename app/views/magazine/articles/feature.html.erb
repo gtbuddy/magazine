@@ -1,0 +1,13 @@
+<h2>Set featured articles</h2>
+<table>
+  <% @articles.each do |article| %>
+  <tr>
+    <td>
+      <%= link_to article.title, magazine_article_path(article)  %>
+    </td>
+    <td>
+      <%= link_to article.featured ? 'unfeature' : 'feature' , ''  %>
+    </td>
+  </tr>
+  <% end %>
+</table>

@@ -73,6 +73,10 @@ module Magazine
       @articles = Article.review
     end
 
+    def feature
+      @articles = Article.all
+    end
+
     private
 
     def raise_404
