@@ -8,7 +8,7 @@ module Magazine
 
     magazine_authenticate(:except => [:index, :show, :tagged])
 
-    magazine_authenticate_admin(:only => [:review, :feature, :toggle_feature])
+    magazine_authenticate_admin(:only => [:review, :feature, :toggle_feature, :approve, :toggle_publish])
     
     magazine_cacher(:index, :show, :tagged)
     magazine_sweeper(:create, :update, :destroy)
