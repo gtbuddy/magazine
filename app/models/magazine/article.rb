@@ -59,8 +59,14 @@ module Magazine
       end
     end
 
+    #Toggles the article's featured field
     def toggle_feature
       update_attribute :featured, !featured
+    end
+
+    #Approves an article pending of review
+    def approve
+      update_attribute :needs_review, false
     end
 
   end

@@ -88,6 +88,15 @@ module Magazine
       end
     end
 
+    def approve
+      @article = Article.find(params[:id])
+      if @article.approve
+        redirect_to review_magazine_articles_path, :notice => 'Article was successfully approved.'
+      else
+        redirect_to review_magazine_articles_path, :notice => 'Article was not successfully approved.'
+      end
+    end
+
     private
 
     def raise_404
