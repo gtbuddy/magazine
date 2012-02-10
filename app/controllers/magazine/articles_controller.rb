@@ -108,6 +108,15 @@ module Magazine
       end
     end
 
+    def set_reviewed
+      @article = Article.find(params[:id])
+      if @article.reviewed
+        redirect_to :back , :notice => 'Article was successfully reviewed.'
+      else
+        redirect_to :back , :notice => 'Article was not successfully reviewed.'
+      end
+    end
+
     private
 
     def raise_404

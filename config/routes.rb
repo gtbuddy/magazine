@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   match "magazine/articles/toggle_feature/:id" => 'articles#toggle_feature', :as => :toggle_feature_articles
   match "magazine/articles/approve/:id" => 'articles#approve', :as => :approve_articles
   match "magazine/articles/toggle_publish/:id" => 'articles#toggle_publish', :as => :toggle_publish_articles
+  match "magazine/articles/set_reviewd/:id" => 'articles#set_reviewd', :as => :reviewd_article
   match "articles/review/" => 'articles#review', :as => :review_articles
   match "articles/feature/" => 'articles#feature', :as => :feature_articles
   match "articles/page/:page" => "articles#index"
