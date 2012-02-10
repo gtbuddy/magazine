@@ -82,9 +82,10 @@ module Magazine
     def toggle_feature
       @article = Article.find(params[:id])
       if @article.toggle_feature
-        redirect_to feature_magazine_articles_path, :notice => 'Article was successfully updated.'
+        featured = @article.featured ? 'featured' : 'unfeatured.'
+        redirect_to :back, :notice => 'Article was successfully ' + featured
       else
-        redirect_to feature_magazine_articles_path, :notice => 'Article was not successfully updated.'
+        redirect_to :back, :notice => 'Article was not successfully ' + featured 
       end
     end
 
