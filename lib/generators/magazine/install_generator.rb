@@ -29,6 +29,7 @@ module Magazine
         migration_template 'create_article_comments.rb', 'db/migrate/create_article_comments.rb'
         migration_template 'add_needs_review_to_articles.rb', 'db/migrate/add_needs_review_to_articles.rb'
 		    migration_template 'add_featured_to_articles.rb', 'db/migrate/add_featured_to_articles.rb'
+		    migration_template 'add_published_to_articles.rb', 'db/migrate/add_published_to_articles.rb'
 		  end
 		end
   end

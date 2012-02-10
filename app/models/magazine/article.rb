@@ -69,5 +69,10 @@ module Magazine
       update_attribute :needs_review, false
     end
 
+    #Toggles the article's published field
+    def toggle_publish
+      update_attribute :published, !published
+    end
+
   end
 end

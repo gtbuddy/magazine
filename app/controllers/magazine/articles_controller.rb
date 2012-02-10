@@ -97,6 +97,16 @@ module Magazine
       end
     end
 
+    def toggle_publish
+      @article = Article.find(params[:id])
+      if @article.toggle_publish
+        published = @article.published ? 'published' : 'unpublished.'
+        redirect_to :back , :notice => 'Article was successfully ' + published 
+      else
+        redirect_to :back , :notice => 'Article was not successfully ' + published
+      end
+    end
+
     private
 
     def raise_404
