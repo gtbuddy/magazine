@@ -37,6 +37,7 @@ module Magazine
 		
     scope :for_index, lambda { |page_no| order("created_at DESC").paginate(:page => page_no) }
     scope :review, where(:needs_review => true)
+    scope :public, where(:needs_review => false, :published => true)
 
     # ====================
     # = Instance Methods =

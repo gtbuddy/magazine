@@ -20,7 +20,7 @@ module Magazine
         }
         format.html {
 					page = params[:page] || 1
-          @articles = Article.for_index(page)
+          @articles = Article.public.for_index(page)
         }
         format.rss {
           @articles = Article.order('created_at DESC')
