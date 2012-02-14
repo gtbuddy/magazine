@@ -44,7 +44,10 @@ module Magazine
   end
 
   def edit
-    @article = current_blogger.articles.find(params[:id])
+    @article    = Article.find(params[:id])
+    if !current_blogger.admin? or current_blogger.id != @article.blogger_id
+      redirect_to :back
+    end
   end
 
   def create
