@@ -1,13 +1,31 @@
-<h2>Articles pending of review</h2>
+<h2>Set featured articles</h2>
 <table>
   <% @articles.each do |article| %>
   <tr>
-    <td>
-      <%= link_to article.title, magazine_article_path(article)  %>
-    </td>
-    <td>
-      <%= link_to 'Approve', approve_articles_path(article)  %>
-    </td>
+    <% if article.needs_review %>
+      <td>
+        <%= article.title %>
+      </td>
+      <td>
+        <%= link_to 'This article needs review', magazine_article_path(article) %>
+      </td>
+    <% else %>
+      <td>
+        <%= link_to article.title, magazine_article_path(article)  %>
+      </td>
+      <td>
+        <%= link_to article.featured ? 'unfeature' : 'feature' , toggle_feature_articles_path(article)  %>
+      </td>
+      <td>
+        <%= link_to article.published ? 'unpublish' : 'publish' , toggle_publish_articles_path(article)  %>
+      </td>
+      <td>
+        <%= link_to 'edit', edit_magazine_article_path(article)  %>
+      </td>
+      <td>
+        <%= link_to 'delete', toggle_feature_articles_path(article)  %>
+      </td>
+    <% end %>
   </tr>
   <% end %>
 </table>

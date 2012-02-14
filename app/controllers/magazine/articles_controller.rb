@@ -72,10 +72,6 @@ module Magazine
   end
 
   def review
-    @articles = Article.review
-  end
-
-  def feature
     @articles = Article.all
   end
 
