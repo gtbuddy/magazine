@@ -92,6 +92,7 @@ module Magazine
   def approve
     @article = Article.find(params[:id])
     if @article.approve
+      @article.toggle_publish if @article.published == false
       redirect_to review_magazine_articles_path, :notice => 'Article was successfully approved.'
     else
       redirect_to review_magazine_articles_path, :notice => 'Article was not successfully approved.'
