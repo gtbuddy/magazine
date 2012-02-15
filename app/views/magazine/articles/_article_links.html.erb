@@ -1,5 +1,7 @@
 <%= login_required do  %>
   <%= actions do %>
-  <%= link_to("edit", edit_magazine_article_path(article)) %> | <%= link_to("delete", article, :method => :destroy, :confirm => "Are you sure you want to remove this article?") %> | <%= link_to("REVIEWED", reviewed_article_path(article)) if article.needs_review and current_blogger and current_blogger.admin? %>
+  <% publish = {"text" => article.published ? "unpublish" : "publish", "link" => toggle_publish_articles_path(article)} %>
+  <% separator_approve = "|" if article.needs_review %>
+  <%= link_to("edit", edit_magazine_article_path(article)) %> | <%= link_to("delete", article, :method => :destroy, :confirm => "Are you sure you want to remove this article?") %> <%= separator_approve %> <%= link_to("approve", approve_articles_path(article)) if article.needs_review and current_blogger and current_blogger.admin? %> | <%= link_to(publish["text"], publish["link"]) if current_blogger and current_blogger.admin? %>
   <% end %>
 <% end unless magazine_conf.author_edits_only and not this_blogger?(article) %>
