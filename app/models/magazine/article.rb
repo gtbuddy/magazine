@@ -75,10 +75,5 @@ module Magazine
       update_attribute :published, !published
     end
 
-    #Toggles the article's published field
-    def reviewed
-      update_attribute :needs_review, false
-    end
-
   end
 end
