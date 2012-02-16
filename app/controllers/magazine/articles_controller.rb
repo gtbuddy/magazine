@@ -45,7 +45,9 @@ module Magazine
 
     def edit
       @article    = Article.find(params[:id])
-      if !current_blogger.admin? or current_blogger.id != @article.blogger_id
+      if current_blogger.admin? or current_blogger.id == @article.blogger_id
+        return true
+      else
         redirect_to :back, :notice => 'Only admin or post\'s author is allowed to edit articles.'
       end
     end
