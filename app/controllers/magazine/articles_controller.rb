@@ -62,7 +62,7 @@ module Magazine
     end
 
     def update
-      @article = current_blogger.articles.find(params[:id])
+      @article = Article.find(params[:id])
       if @article.update_attributes(params[:magazine_article])
         redirect_to @article, :notice => 'Article was successfully updated.'
       else
@@ -71,9 +71,9 @@ module Magazine
     end
 
     def destroy
-      @article = current_blogger.articles.find(params[:id])
+      @article = Article.find(params[:id])
       @article.destroy
-      redirect_to articles_url, :notice => "Article was successfully destroyed."
+      redirect_to magazine_url, :notice => "Article was successfully destroyed."
     end
 
     def review
