@@ -35,13 +35,17 @@ module Magazine
     # Returns the blog articles paginated for the index page
     # @scope class
 		
-    scope :for_index, lambda { |page_no| order("created_at DESC").paginate(:page => page_no) }
+    scope :index_scope, lambda { order("created_at DESC") }
     scope :review, where(:needs_review => true)
     scope :public, where(:needs_review => false, :published => true)
 
     # ====================
     # = Instance Methods =
     # ====================
+
+    def self.for_index(page_no)
+      self.public.index_scope.paginate(:page => page_no)
+    end
 
     def to_param
       "#{id}-#{title.parameterize}"
