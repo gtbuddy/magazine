@@ -10,24 +10,11 @@
     Hide me using CSS
   <% end %>
   
-  <%= field do %>
-    <%= f.label :name, "Name *" %><br>
-    <%= f.text_field :name, :value => (current_user.name if current_user) %>
-    <%= errors_on(@comment, :name) %>
+  <% if current_blogger %>
+    <%= field :class => "hidden" do %>
+      <%= render :partial => 'magazine/comments/fields', :locals => {:f => f} %>  
+    <% end %>
   <% end %>
-  
-  <%= field do %>
-    <%= f.label :email, "Email" %> (never displayed)<br>
-    <%= f.email_field :email %>
-    <%= errors_on(@comment, :email) %>    
-  <% end %>
-
-  <%= field do %>
-    <%= f.label :website, "Your Website" %><br>
-    <%= f.url_field :website %>
-    <%= errors_on(@comment, :website) %>    
-  <% end %>
-
   
   <%= field do %>
     <%= f.label :body, "Your comment *" %><br>

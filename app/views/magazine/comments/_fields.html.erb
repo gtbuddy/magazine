@@ -1,0 +1,17 @@
+<%= field do %>
+  <%= f.label :name, "Name *" %><br>
+  <%= f.text_field :name, :value => current_user.name %>
+  <%= errors_on(@comment, :name) %>
+<% end %>
+
+<%= field do %>
+  <%= f.label :email, "Email" %> (never displayed)<br>
+  <%= f.email_field :email, :value => current_blogger.email %>
+  <%= errors_on(@comment, :email) %>    
+<% end %>
+
+<%= field do %>
+  <%= f.label :website, "Your Website" %><br>
+  <%= f.url_field :website %>
+  <%= errors_on(@comment, :website) %>    
+<% end %>
