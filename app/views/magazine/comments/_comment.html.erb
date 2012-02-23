@@ -12,8 +12,8 @@
   <%= content_tag(:footer) do %>
     Posted on <%= time_tag(comment.created_at, Magazine.configuration.datetime_format) %>
   <% end %>
-  
-  <%= render :partial => "magazine/comments/admin_links" %>
+
+  <%= render :partial => "magazine/comments/admin_links", :locals => {:comment => comment} %>
   
 <% end if comment.persisted? %>
 
