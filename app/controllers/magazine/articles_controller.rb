@@ -94,7 +94,10 @@ module Magazine
       @article = Article.find(params[:id])
       if @article.approve
         @article.toggle_publish if @article.published == false
-        redirect_to :back, :notice => 'Article was successfully approved.'
+        respond_to do |format|
+          format.html
+          format.js{}
+        end
       else
         redirect_to :back, :notice => 'Article was not successfully approved.'
       end
