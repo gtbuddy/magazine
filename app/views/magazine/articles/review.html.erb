@@ -1,5 +1,5 @@
 <h2>Set featured articles</h2>
-<table>
+<table class='article_links'>
   <% @articles.each do |article| %>
   <tr>
     <td>
@@ -7,7 +7,7 @@
     </td>
     <% if article.needs_review %>
       <td>
-        <div class='approve_link'><%= link_to 'approve', approve_articles_path(article), :remote => true  %></div>
+        <%= link_to 'approve', approve_articles_path(article), :remote => true, :class => 'approve'  %>
       </td>
     <% else %>
       <td>

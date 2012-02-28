@@ -94,6 +94,10 @@ module Magazine
       @article = Article.find(params[:id])
       if @article.approve
         @article.toggle_publish if @article.published == false
+        if request.referer.include? 'review'
+          @review = true 
+          @articles = Article.all
+        end
         respond_to do |format|
           format.html
           format.js{}

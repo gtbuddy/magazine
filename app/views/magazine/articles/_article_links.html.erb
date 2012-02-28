@@ -1,4 +1,4 @@
-<div id='article_links'>
+<div class='article_links'>
   <%= login_required do  %>
     <%= actions do %>
     <% publish = {"text" => article.published ? "unpublish" : "publish", "link" => toggle_publish_articles_path(article)} %>
