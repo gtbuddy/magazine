@@ -7,7 +7,7 @@
     </td>
     <% if article.needs_review %>
       <td>
-        <%= link_to 'approve', approve_articles_path(article)  %>
+        <div class='approve_link'><%= link_to 'approve', approve_articles_path(article), :remote => true  %></div>
       </td>
     <% else %>
       <td>
