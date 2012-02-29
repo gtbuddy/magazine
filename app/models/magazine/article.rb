@@ -25,7 +25,7 @@ module Magazine
     belongs_to :blogger, :polymorphic => true
 
     if Magazine.configuration.include_comments 
-      has_many :comments, :class_name => "Magazine::Comment"
+      has_many :comments, :class_name => "Magazine::Comment", :order => "created_at DESC"
     end
 
     # ==========

@@ -4,6 +4,7 @@ module Magazine
     magazine_authenticate :except => [:create]
     magazine_sweeper(:create, :update, :destroy)
 
+    helper 'magazine/articles'
 
     def create
       @comment = article.comments.build(params[:magazine_comment])
@@ -16,16 +17,14 @@ module Magazine
         status_message.skip_formatting = true
 
         if status_message.save
-          aspects = current_user.aspects
-          current_user.add_to_streams(status_message, aspects)
-          receiving_services = current_user.services.where(:type => params[:services].map{|s| "Services::"+s.titleize}) if params[:services]
-          current_user.dispatch_post(status_message, :url => short_post_url(status_message.guid), :services => receiving_services)
+          current_user.add_to_streams(status_message, current_user.aspects)
+          current_user.dispatch_post(status_message, :url => short_post_url(status_message.guid))
         end
-
       end
 
       respond_to do |format|
-        format.js { @comment.save}
+
+        format.js
 
         format.html do
           if @comment.save

@@ -1,6 +1,6 @@
 var $form = $("form#new_article_comment");
 <% if @comment.save %>
-$("#comments").append("<%= escape_javascript(render :partial => 'comment', :locals => {:comment => @comment}) %>");
+$("#comments").prepend("<%= escape_javascript(render 'comment', :comment => @comment) %>");
   $form.get(0).reset();
 <% else %>
   $form.html("<%= escape_javascript(render('form')) %>");
