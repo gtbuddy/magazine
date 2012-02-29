@@ -2,28 +2,38 @@ module Magazine
   class CommentsController < ApplicationController
 
     magazine_authenticate :except => [:create]
-    
     magazine_sweeper(:create, :update, :destroy)
 
-		helper 'magazine/articles'
 
     def create
+      @comment = article.comments.build(params[:magazine_comment])
 
-      @comment = article.comments.new(params[:magazine_comment])
+      if @comment.valid?
+        status_message = current_user.build_post( :status_message,
+                                { :public => true,
+                                  :text => comment_blog_post_message_status_update_text(current_user.person, @comment)
+                                })
+        status_message.skip_formatting = true
+
+        if status_message.save
+          aspects = current_user.aspects
+          current_user.add_to_streams(status_message, aspects)
+          receiving_services = current_user.services.where(:type => params[:services].map{|s| "Services::"+s.titleize}) if params[:services]
+          current_user.dispatch_post(status_message, :url => short_post_url(status_message.guid), :services => receiving_services)
+        end
+
+      end
+
       respond_to do |format|
-        format.js {
-          # the rest is dealt with in the view
-          @comment.save
-        }
+        format.js { @comment.save}
 
-        format.html { 
-          if @comment.save 
-            redirect_to(article, :notice => "Successfully added comment!")
+        format.html do
+          if @comment.save
+            redirect_to article, :notice => "Successfully added comment!"
           else
             render "magazine/articles/show"
           end
-        }
-
+        end
       end
 
     end
@@ -36,12 +46,19 @@ module Magazine
         format.js
       end
     end
-    
+
     private
 
     def article
       @article ||= Magazine::Article.find(params[:magazine_article_id])
     end
-    
+
+    def comment_blog_post_message_status_update_text(person, comment)
+      tag = "<a href='#{person_path(person)}'>#{person.messaging_name}</a>"
+      tag += " commented on "
+      tag += "<a href='#{magazine_article_path(comment.article)}'>#{comment.article.title}</a>"
+      tag += "<span class='body-comment-magazine-post-message-status'> : \"#{comment.body}\"</span>"
+      tag
+    end
   end
 end
