@@ -1,25 +1,21 @@
-<% articles.each do |article| %>
-<tr>
+<td>
+  <%= link_to article.title, magazine_article_path(article)  %>
+</td>
+<% if article.needs_review %>
   <td>
-    <%= link_to article.title, magazine_article_path(article)  %>
+    <%= link_to 'approve', approve_articles_path(article), :remote => true, :class => 'approve'  %>
   </td>
-  <% if article.needs_review %>
-    <td>
-      <%= link_to 'approve', approve_articles_path(article), :remote => true, :class => 'approve'  %>
-    </td>
-  <% else %>
-    <td>
-      <%= link_to article.published ? 'unpublish' : 'publish' , toggle_publish_articles_path(article)  %>
-    </td>
-  <% end %>
+<% else %>
   <td>
-    <%= link_to article.featured ? 'unfeature' : 'feature' , toggle_feature_articles_path(article)  %>
+    <%= link_to article.published ? 'unpublish' : 'publish' , toggle_publish_articles_path(article)  %>
   </td>
-  <td>
-    <%= link_to 'edit', edit_magazine_article_path(article)  %>
-  </td>
-    <td>
-      <%= link_to 'delete', toggle_feature_articles_path(article)  %>
-    </td>
-  </tr>
-  <% end %>
+<% end %>
+<td>
+  <%= link_to article.featured ? 'unfeature' : 'feature' , toggle_feature_articles_path(article)  %>
+</td>
+<td>
+  <%= link_to 'edit', edit_magazine_article_path(article)  %>
+</td>
+<td>
+  <%= link_to 'delete', toggle_feature_articles_path(article)  %>
+</td>

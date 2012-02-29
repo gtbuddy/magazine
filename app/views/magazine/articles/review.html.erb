@@ -1,13 +1,23 @@
+<script type='text/javascript'>
+  $(document).ready(function(){
+    $('table.article_links tr.approve').click(function(){
+        $(this).attr('clicked','true');
+        console.log($(this));
+        });
+  });
+</script>
+
+
 <h2>Set featured articles</h2>
 <table class='article_links'>
   <% @articles.each do |article| %>
-  <tr>
+  <tr class='approve'>
     <td>
       <%= link_to article.title, magazine_article_path(article)  %>
     </td>
     <% if article.needs_review %>
       <td>
-        <%= link_to 'approve', approve_articles_path(article), :remote => true, :class => 'approve'  %>
+        <%= link_to 'approve', approve_articles_path(article), :remote => true %>
       </td>
     <% else %>
       <td>

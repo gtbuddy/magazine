@@ -1,5 +1,5 @@
 <% if @review %>
-  $("table.article_links").html("<%= escape_javascript(render :partial => 'review', :locals => {:articles => @articles}) %>");
+  $('.article_links tr.approve[clicked="true"]').html("<%= escape_javascript(render :partial => 'review', :locals => {:article => @article}) %>");
 <% else %>
   $(".article_links").html("<%= escape_javascript(render :partial => 'article_links', :locals => {:article => @article}) %>");
 <% end %>
