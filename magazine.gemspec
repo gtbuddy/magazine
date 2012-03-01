@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency "albino", ">=1.3.3"
   s.add_dependency 'acts-as-taggable-on', '>=2.0.6'
   s.add_dependency "will_paginate", '>=3.0.2'
+  s.add_dependency 'carrierwave', '0.5.8'
 
   s.add_development_dependency "jquery-rails"
   s.add_development_dependency "sqlite3"  
