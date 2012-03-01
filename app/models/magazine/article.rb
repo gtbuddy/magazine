@@ -23,6 +23,7 @@ module Magazine
     # =================    
 
     belongs_to :blogger, :polymorphic => true
+    has_many :images
 
     if Magazine.configuration.include_comments 
       has_many :comments, :class_name => "Magazine::Comment", :order => "created_at DESC"
