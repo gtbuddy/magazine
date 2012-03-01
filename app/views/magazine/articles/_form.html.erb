@@ -54,6 +54,13 @@
 
   </fieldset>
 
+  <fieldset>
+    <%= field do %>
+      <%= f.label :date_published %>
+      <%= f.text_field :date_published %>
+    <% end %>
+  </fieldset>
+
   <%= actions do %>
     <%= f.submit %> or 
     <%= link_to("cancel", @article.new_record? ? root_path : article_path(@article)) %>

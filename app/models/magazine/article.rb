@@ -78,6 +78,7 @@ module Magazine
     #Toggles the article's published field
     def toggle_publish
       update_attribute :published, !published
+      update_attribute :date_published, published if published
     end
 
   end

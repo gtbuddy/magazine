@@ -41,6 +41,7 @@ module Magazine
 
     def new
       @article = current_blogger.articles.build(params[:magazine_article])
+      4.times { @article.images.build }
     end
 
     def edit
