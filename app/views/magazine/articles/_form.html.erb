@@ -32,8 +32,13 @@
     <% end %>
 
     <%= field do %>
-      <%= f.text_area :body, :placeholder => "Write something here..." %>
+      <%= f.text_field :excerpt, :placeholder => "Write an excerpt of your article here (100 words max recommended)" %>
     <% end %>
+
+    <%= field do %>
+      <%= f.text_area :body, :placeholder => "Write your article here..." %>
+    <% end %>
+
   </fieldset>
 
   <fieldset>

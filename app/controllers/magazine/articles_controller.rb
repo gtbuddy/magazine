@@ -40,7 +40,7 @@ module Magazine
     end
 
     def new
-      @article = current_blogger.articles.new(params[:magazine_article])
+      @article = current_blogger.articles.build(params[:magazine_article])
     end
 
     def edit
