@@ -62,17 +62,20 @@
     </fieldset>
   <% end %>
 
+  <fieldset>
+    <%= label_tag 'Upload some images for your article' %>
+    <div id='publisher_textarea_wrapper'>
+      <ul><div id='photodropzone'></div></ul>
+      <div id='file-upload' title='Upload photos'>
+        <%= image_tag 'icons/camera.png', :alt => 'Upload photos' %>
+      </div>
+    </div>
+  </fieldset>
+
   <%= actions do %>
     <%= f.submit %> or 
     <%= link_to("cancel", @article.new_record? ? root_path : article_path(@article)) %>
   <% end %>
-
-  <div id='publisher_textarea_wrapper'>
-    <ul><div id='photodropzone'></div></ul>
-    <div id='file-upload' title='Upload photos'>
-      <%= image_tag 'icons/camera.png', :alt => 'Upload photos' %>
-    </div>
-  </div>
 
   <script type='text/javascript'>
     function createUploader(){
