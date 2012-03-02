@@ -40,11 +40,9 @@
     <%= field do %>
       <%= f.text_area :body, :placeholder => "Write your article here..." %>
     <% end %>
-
   </fieldset>
 
   <fieldset>
-
     <%= field :id => "new_article_tag_field" do %>
       <%= f.label :tag_list, "Tags" %>
       <%= f.text_field :tag_list, :placeholder => "tag one, tag two, etc..." %>
@@ -53,7 +51,6 @@
     <p class="article_tip">
       Tip: you can style your article using <%= magazine_conf.default_parser %>
     </p>
-
   </fieldset>
 
   <% if current_blogger and current_blogger.admin? %>
@@ -69,5 +66,95 @@
     <%= f.submit %> or 
     <%= link_to("cancel", @article.new_record? ? root_path : article_path(@article)) %>
   <% end %>
+
+  <div id='publisher_textarea_wrapper'>
+    <ul><div id='photodropzone'></div></ul>
+    <div id='file-upload' title='Upload photos'>
+      <%= image_tag 'icons/camera.png', :alt => 'Upload photos' %>
+    </div>
+  </div>
+
+  <script type='text/javascript'>
+    function createUploader(){
+      var uploader = new qq.FileUploaderBasic({
+          element: document.getElementById('file-upload'),
+          params: {'photo' : {'pending' : 'true', 'aspect_ids' : ""}},
+          allowedExtensions: ['jpg', 'jpeg', 'png', 'gif', 'tiff'],
+          action: "/photos",
+          debug: true,
+          button: document.getElementById('file-upload'),
+          sizeLimit: 4194304,
+
+          onProgress: function(id, fileName, loaded, total){
+          },
+
+          messages: {
+              typeError: "#{t('.invalid_ext')}",
+              sizeError: "#{t('.size_error')}",
+              emptyError: "#{t('.empty')}"
+          },
+
+          onSubmit: function(id, fileName){
+           $('#file-upload').addClass("loading");
+           $('#publisher').find("input[type='submit']").attr('disabled','disabled');
+
+           $("#publisher textarea").addClass("with_attachments");
+           $('#photodropzone').append(
+             "<li class='publisher_photo loading' style='position:relative;'>" +
+               "<img src='/images/ajax-loader2.gif' />" +
+             "</li>"
+             );
+          },
+
+          onComplete: function(id, fileName, responseJSON) {
+           $('#fileInfo').text(fileName + ' completed');
+           var id = responseJSON.data.photo.id,
+               url = responseJSON.data.photo.unprocessed_image.url,
+               currentPlaceholder = $('li.loading').first();
+
+           $("#publisher textarea").addClass("with_attachments");
+           $('#new_status_message').append("<input type='hidden' value='" + id + "' name='photos[]' />");
+
+           // replace image placeholders
+           var img = currentPlaceholder.find('img');
+           img.attr('src', url);
+           img.attr('data-id', id);
+           currentPlaceholder.removeClass('loading');
+           currentPlaceholder.append("<div class='x'>X</div>" +
+               "<div class='circle'></div>");
+           ////
+
+           var publisher = $('#publisher'),
+               textarea = publisher.find('textarea');
+
+           publisher.find("input[type='submit']").removeAttr('disabled');
+
+           $('.x').bind('click', function(){
+             var photo = $(this).closest('.publisher_photo');
+             photo.addClass("dim");
+             $.ajax({url: "photos/" + photo.children('img').attr('data-id'),
+                     type: 'DELETE',
+                     success: function() {
+                               photo.fadeOut(400, function(){
+                                 photo.remove();
+                                 textarea.css('paddingBottom', $("#photodropzone").height() + 10);
+                                 if ( $('.publisher_photo').length  == 0){
+                                   textarea.removeClass("with_attachments");
+                                   textarea.css('paddingBottom', '');
+                                 }
+                               });
+                             }
+                     });
+           });
+          },
+
+          onAllComplete: function(completed_files){
+          }
+
+      });
+    }
+
+    createUploader();
+  </script>
 
 <% end %>
