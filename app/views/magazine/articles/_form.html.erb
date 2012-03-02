@@ -28,11 +28,13 @@
 
   <fieldset>
     <%= field do %>
+      <%= f.label :title %>
       <%= f.text_field :title, :placeholder => "Give your article a title" %>
     <% end %>
 
     <%= field do %>
-      <%= f.text_field :excerpt, :placeholder => "Write an excerpt of your article here (100 words max recommended)" %>
+      <%= f.label :excerpt %>
+      <%= f.text_area :excerpt,:placeholder => "Write an excerpt here...", :rows => 4, :style => 'resize:none' %>
     <% end %>
 
     <%= field do %>
