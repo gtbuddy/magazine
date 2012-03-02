@@ -54,12 +54,14 @@
 
   </fieldset>
 
-  <fieldset>
-    <%= field do %>
-      <%= f.label :date_published %>
-      <%= f.datetime_select :date_published %>
-    <% end %>
-  </fieldset>
+  <% if current_blogger and current_blogger.admin? %>
+    <fieldset>
+      <%= field do %>
+        <%= f.label :date_published %>
+        <%= f.datetime_select :date_published %>
+      <% end %>
+    </fieldset>
+  <% end %>
 
   <%= actions do %>
     <%= f.submit %> or 
