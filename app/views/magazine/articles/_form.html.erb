@@ -64,13 +64,15 @@
 
   <fieldset>
     <%= label_tag 'Upload some images for your article' %>
-    <div id='publisher_textarea_wrapper'>
+    <div id='publisher_textarea_wrapper' style='height:60px;'>
       <ul><div id='photodropzone'></div></ul>
-      <div id='file-upload' title='Upload photos'>
+      <div id='file-upload' title='Upload photos' style='width:30px; float:right; padding-top:13px; cursor:pointer;'>
         <%= image_tag 'icons/camera.png', :alt => 'Upload photos' %>
       </div>
     </div>
   </fieldset>
+
+  <%= hidden_field_tag 'images'%>
 
   <%= actions do %>
     <%= f.submit %> or 
@@ -117,6 +119,10 @@
 
            $("#publisher textarea").addClass("with_attachments");
            $('#new_status_message').append("<input type='hidden' value='" + id + "' name='photos[]' />");
+
+           
+           var text = $('#images').val() + fileName + "≠";
+           $('#images').val(text);
 
            // replace image placeholders
            var img = currentPlaceholder.find('img');
