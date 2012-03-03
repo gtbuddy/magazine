@@ -64,6 +64,12 @@ module Magazine
 
     def update
       @article = Article.find(params[:id])
+      @images = params[:images].split('≠')
+      @images.each do |image|
+        @image = Image.new :article_id => @article.id
+        @image.file = image
+        @image.save!
+      end
       if @article.update_attributes(params[:magazine_article])
         redirect_to @article, :notice => 'Article was successfully updated.'
       else
