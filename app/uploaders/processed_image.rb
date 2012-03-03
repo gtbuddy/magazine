@@ -1,6 +1,8 @@
 class ProcessedImage < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
+  storage Magazine.configuration.cloud_storage
+
   def store_dir
     "uploads/images"
   end
