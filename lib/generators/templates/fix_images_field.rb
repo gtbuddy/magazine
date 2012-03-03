@@ -1,4 +1,4 @@
-class CreateImages < ActiveRecord::Migration
+class FixImagesField < ActiveRecord::Migration
   def self.up
     rename_column :images, :file, :string, :null => false
   end
