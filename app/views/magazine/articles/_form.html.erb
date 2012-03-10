@@ -40,6 +40,10 @@
     <%= field do %>
       <%= f.text_area :body, :placeholder => "Write your article here..." %>
     <% end %>
+    
+    <p class="article_tip">
+      Tip: you can style your article using <%= magazine_conf.default_parser %>
+    </p>
   </fieldset>
 
   <fieldset>
@@ -47,10 +51,6 @@
       <%= f.label :tag_list, "Tags" %>
       <%= f.text_field :tag_list, :placeholder => "tag one, tag two, etc..." %>
     <% end %>
-    
-    <p class="article_tip">
-      Tip: you can style your article using <%= magazine_conf.default_parser %>
-    </p>
   </fieldset>
 
   <% if current_blogger and current_blogger.admin? %>
