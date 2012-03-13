@@ -12,7 +12,7 @@
 <% end %>
 
 
-<%= form_for(@article, :html => {:class => "new_article", :id => "new_article"}) do |f| %>
+<%= form_for(@article, :html => {:class => "new_article", :id => "new_article", :multipart => true}) do |f| %>
 
   <% if @article.errors.any? %>
     <div id="error_explanation">
@@ -62,17 +62,17 @@
     </fieldset>
   <% end %>
 
-  <!--<fieldset>-->
-    <!--<%= label_tag 'Upload some images for your article' %>-->
-    <!--<div id='publisher_textarea_wrapper' style='height:60px;'>-->
-      <!--<ul><div id='photodropzone'></div></ul>-->
-      <!--<div id='file-upload' title='Upload photos' style='width:30px; float:right; padding-top:20px; cursor:pointer;'>-->
-        <!--<%= image_tag 'icons/camera.png', :alt => 'Upload photos' %>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</fieldset>-->
+  <fieldset>
+    <%= label_tag 'Upload some images for your article' %>
+    <div id='publisher_textarea_wrapper' style='height:60px;'>
+      <ul><div id='photodropzone'></div></ul>
+      <div id='file-upload' title='Upload photos' style='width:30px; float:right; padding-top:20px; cursor:pointer;'>
+        <%= image_tag 'icons/camera.png', :alt => 'Upload photos' %>
+      </div>
+    </div>
+  </fieldset>
 
-  <!--<%= hidden_field_tag 'images'%>-->
+  <%= hidden_field_tag 'images'%>
 
   <%= actions do %>
     <%= f.submit %> or 
@@ -120,10 +120,6 @@
            $("#publisher textarea").addClass("with_attachments");
            $('#new_status_message').append("<input type='hidden' value='" + id + "' name='photos[]' />");
 
-           
-           var text = $('#images').val() + fileName + "≠";
-           $('#images').val(text);
-
            // replace image placeholders
            var img = currentPlaceholder.find('img');
            img.attr('src', url);
@@ -164,6 +160,12 @@
     }
 
     createUploader();
+    $('#magazine_article_submit').click(function(){
+        images = $('#photodropzone img');
+        $.each(images, function(index,value){
+          $('#images').val($('#images').val() + '≠' + $(value).attr('src'));
+        });
+      });
   </script>
 
 <% end %>
