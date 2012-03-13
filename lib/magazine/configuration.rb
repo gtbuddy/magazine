@@ -79,10 +79,10 @@ module Magazine
     attr_accessor :rss_feed_language
 
     # Configuration for cloudfiles
-    attr_accessor :cloud_storage
-    attr_accessor :cloud_fog_credentials
-    attr_accessor :cloud_fog_directory
-    attr_accessor :cloud_fog_host
+    attr_accessor :storage
+    attr_accessor :fog_credentials
+    attr_accessor :fog_directory
+    attr_accessor :fog_host
     
     REDCARPET_OPTIONS = {
       "hard_wrap" => "true", 

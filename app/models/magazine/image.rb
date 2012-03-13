@@ -5,7 +5,7 @@ module Magazine
 
     belongs_to :article
 
-    mount_uploader :file, ProcessedImage
+    mount_uploader :file, ProcessedArticleImage
     
   end
 end
