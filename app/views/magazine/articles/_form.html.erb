@@ -63,16 +63,35 @@
   <% end %>
 
   <fieldset>
-    <%= label_tag 'Upload some images for your article' %>
-    <div id='publisher_textarea_wrapper' style='height:60px;'>
-      <ul><div id='photodropzone'></div></ul>
-      <div id='file-upload' title='Upload photos' style='width:30px; float:right; padding-top:20px; cursor:pointer;'>
-        <%= image_tag 'icons/camera.png', :alt => 'Upload photos' %>
-      </div>
-    </div>
+    <%= f.fields_for :images do |i| %>
+      <% unless i.object.new_record?%>
+        <p class="article_form_existing_image_fields">
+          <%= image_tag i.object.file.url(:thumb_small) %>
+          <%= i.object.name%>
+          <%= i.check_box :_destroy %>
+          <%= i.label :_destroy, "Remove Image" %>
+        </p>
+
+      <% else %>
+        <div class="article_form_new_image_fields">
+          <div class="image_file_fields">
+            <%= i.label :file, "Add an image" %>
+            <%= i.file_field :file %>
+            <div style='clear:both'></div>
+          </div>
+          <div class="image_names">  
+            <%= i.label :name, "Name" %>
+            <%= i.text_field :name %>
+          </div>
+          <div class="image_names">  
+            <%= i.label :alt_name, "Alt Name" %>
+            <%= i.text_field :alt_name %>
+          </div>
+        </div>
+      <%end%>
+    <% end %>
   </fieldset>
 
-  <%= hidden_field_tag 'images'%>
 
   <%= actions do %>
     <%= f.submit %> or 

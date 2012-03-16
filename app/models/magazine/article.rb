@@ -23,7 +23,8 @@ module Magazine
     # =================    
 
     belongs_to :blogger, :polymorphic => true
-    has_many :images
+
+    has_many :images, :class_name => "Magazine::Image"
 
     if Magazine.configuration.include_comments 
       has_many :comments, :class_name => "Magazine::Comment", :order => "created_at DESC"
@@ -43,6 +44,8 @@ module Magazine
     # ====================
     # = Instance Methods =
     # ====================
+    
+    accepts_nested_attributes_for :images, :allow_destroy => true
 
     def self.for_index(page_no)
       self.public.index_scope.paginate(:page => page_no)

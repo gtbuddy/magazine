@@ -5,5 +5,5 @@ class AddRandomStringToImages < ActiveRecord::Migration
 
   def self.down
     remove_column :images, :random_string
-  end
+	end
 end

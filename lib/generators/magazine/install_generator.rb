@@ -25,7 +25,9 @@ module Magazine
 		  end
 
 		  def create_migration_file
-        migration_template 'add_random_string_to_images.rb', 'db/migrate/add_random_string_to_images.rb'
+        migration_template 'add_default_image_to_images.rb', 'db/migrate/add_default_image_to_images.rb'
+        migration_template 'add_name_and_alt_name_to_images.rb', 'db/migrate/add_name_and_alt_name_to_images.rb'
+		    migration_template 'add_random_string_to_images.rb', 'db/migrate/add_random_string_to_images.rb'
         migration_template 'fix_images_field.rb', 'db/migrate/fix_images_field.rb'
         migration_template 'add_date_published_to_articles.rb', 'db/migrate/add_date_published_to_articles.rb'
         migration_template 'create_images.rb', 'db/migrate/create_images.rb'

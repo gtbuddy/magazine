@@ -41,12 +41,15 @@ module Magazine
 
     def new
       @article = current_blogger.articles.build(params[:magazine_article])
-      4.times { @article.images.build }
+      @article.images.build
     end
 
     def edit
       @article    = Article.find(params[:id])
+      @article.images.build
+
       if current_blogger.admin? or current_blogger.id == @article.blogger_id
+
         return true
       else
         redirect_to :back, :notice => 'Only admin or post\'s author is allowed to edit articles.'
@@ -64,14 +67,7 @@ module Magazine
 
     def update
       @article = Article.find(params[:id])
-      @images = params[:images].split('≠')
-      @images.each do |image|
-        unless image.blank?
-          @image = @article.images.build
-          @image.file = File.open('public' + image)
-          @image.save!
-        end
-      end
+
       if @article.update_attributes(params[:magazine_article])
         redirect_to @article, :notice => 'Article was successfully updated.'
       else
