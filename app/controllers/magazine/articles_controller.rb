@@ -68,13 +68,15 @@ module Magazine
     def update
       @article = Article.find(params[:id])
 
-      default_image_id = params["default_image"]["is_default_image"]
-      @article.set_default_image(default_image_id)
+      if params["default_image"]
+        default_image_id = params["default_image"]["is_default_image"]
+        @article.set_default_image(default_image_id)
 
-      empty_image = {}
-      images_attributes = params["magazine_article"]["images_attributes"]
-      images_attributes.each_pair{ |key, value| empty_image = key if value.has_key? "name" and value["name"].blank?}
-      images_attributes.delete empty_image unless empty_image.blank?
+        empty_image = {}
+        images_attributes = params["magazine_article"]["images_attributes"]
+        images_attributes.each_pair{ |key, value| empty_image = key if value.has_key? "name" and value["name"].blank?}
+        images_attributes.delete empty_image unless empty_image.blank?
+      end
 
       if @article.update_attributes(params[:magazine_article])
         redirect_to @article, :notice => 'Article was successfully updated.'
