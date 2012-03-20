@@ -12,7 +12,9 @@
 
   <%# Render only the article's cover image for index and all the images for the show %>
   <% if params[:action] == 'index'%>
-    <%= image_tag article.cover_image.file.url(:thumb_medium) if article.cover_image %>
+    <div style="padding:5px 10px 0px 0px;">
+      <%= image_tag article.cover_image.file.url(:thumb_medium) if article.cover_image %>
+    </div>
   <% else %>
     <% for image in article.images do%>
       <%= image_tag image.file.url(:thumb_medium)%>
