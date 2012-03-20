@@ -1,4 +1,4 @@
-<div class='article_links'>
+<div class='article_links' style='clear:both; padding-top:15px;'>
   <%= login_required do  %>
     <%= actions do %>
     <% publish = {"text" => article.published ? "unpublish" : "publish", "link" => toggle_publish_articles_path(article)} %>
