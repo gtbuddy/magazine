@@ -6,6 +6,8 @@ module Magazine
     
     acts_as_taggable    
 
+    before_save :set_first_image
+
     self.table_name = "articles"
 
     self.per_page = Magazine.configuration.articles_per_page
@@ -85,14 +87,24 @@ module Magazine
     end
 
     def set_default_image(image_id)
-      @default_image = Image.default_image.first
-      @new_default_image = Image.find(image_id)
+      @images = self.images
+      @default_image = @images.default_image.first
+      @new_default_image = @images.find(image_id)
       unless @default_image == @new_default_image 
         @default_image.remove_default
         @new_default_image.set_default
       end
     end
 
+    def cover_image
+      @images = self.images
+      @images.default_image.first
+    end
+
+    private
+    def set_first_image
+      self.images.first.update_attribute :is_default_image, true if self.images.count < 1
+    end
 
   end
 end
