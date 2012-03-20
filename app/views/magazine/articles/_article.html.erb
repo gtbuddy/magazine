@@ -6,8 +6,13 @@
   <%# Render the body of this blog article (as Markdown) %>
   <%= render "magazine/articles/article_body", :article => article %>
 
-  <% for image in article.images do%>
-    <%= image_tag image.file.url(:thumb_medium)%>
+  <% if params[:action] == 'index'%>
+    
+    <%= image_tag article.cover_image.file.url(:thumb_medium) if article.cover_image %>
+  <% else %>
+    <% for image in article.images do%>
+      <%= image_tag image.file.url(:thumb_medium)%>
+    <%end%>
   <%end%>
 
   <%# Render admin links to edit/delete this article %>
