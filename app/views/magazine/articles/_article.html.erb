@@ -6,8 +6,8 @@
   <%# Render the body of this blog article (as Markdown) %>
   <%= render "magazine/articles/article_body", :article => article %>
 
+  <%# Render only the article's cover image for index and all the images for the show %>
   <% if params[:action] == 'index'%>
-    
     <%= image_tag article.cover_image.file.url(:thumb_medium) if article.cover_image %>
   <% else %>
     <% for image in article.images do%>
