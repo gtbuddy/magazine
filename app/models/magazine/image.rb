@@ -3,7 +3,7 @@ module Magazine
   class Image < ActiveRecord::Base
     require 'carrierwave/orm/activerecord'
 
-    attr_accessible :file, :name, :alt_name
+    attr_accessible :file, :name, :alt_name, :is_default_image
 
     belongs_to :article, :class_name => "Magazine::Article"
 
