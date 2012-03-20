@@ -67,7 +67,9 @@ module Magazine
 
     def update
       @article = Article.find(params[:id])
-      debugger
+
+      default_image_id = params["default_image"]["is_default_image"]
+      @article.set_default_image(default_image_id)
 
       empty_image = {}
       images_attributes = params["magazine_article"]["images_attributes"]

@@ -84,5 +84,15 @@ module Magazine
       update_attribute :date_published, published if published
     end
 
+    def set_default_image(image_id)
+      @default_image = Image.default_image.first
+      @new_default_image = Image.find(image_id)
+      unless @default_image == @new_default_image 
+        @default_image.remove_default
+        @new_default_image.set_default
+      end
+    end
+
+
   end
 end

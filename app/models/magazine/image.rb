@@ -11,8 +11,18 @@ module Magazine
 
     mount_uploader :file, ProcessedArticleImage
 
+    scope :default_image, where(:is_default_image => true)
+
     def filename
       ActiveSupport::SecureRandom.hex(10) + File.extname(@filename) if @filename
+    end
+
+    def set_default
+      update_attribute :is_default_image, true
+    end
+
+    def remove_default
+      update_attribute :is_default_image, false
     end
 
     private
