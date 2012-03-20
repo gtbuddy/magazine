@@ -74,7 +74,7 @@ module Magazine
 
         empty_image = {}
         images_attributes = params["magazine_article"]["images_attributes"]
-        images_attributes.each_pair{ |key, value| empty_image = key if value.has_key? "name" and value["name"].blank?}
+        images_attributes.each_pair{ |key, value| empty_image = key if value.has_key?("name") and value["file"].blank?}
         images_attributes.delete empty_image unless empty_image.blank?
       end
 
